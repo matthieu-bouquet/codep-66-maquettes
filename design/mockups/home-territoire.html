@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>CODEP 66 — Maquette Territoire</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --yellow: #f5c518;
+      --yellow-soft: #fff8dc;
+      --red: #c41e3a;
+      --blue: #1d5fa7;
+      --ink: #1a1a1a;
+      --muted: #64748b;
+      --white: #ffffff;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: "Plus Jakarta Sans", system-ui, sans-serif;
+      color: var(--ink);
+      background: var(--white);
+      line-height: 1.55;
+    }
+    a { color: var(--blue); font-weight: 600; text-decoration: none; }
+    a:hover { color: var(--red); }
+    .back {
+      position: absolute; top: 1rem; left: 1rem; z-index: 20;
+      font-size: 0.8rem; color: var(--ink); background: rgba(255,255,255,0.85);
+      padding: 0.35rem 0.65rem; border-radius: 8px;
+    }
+    header.site {
+      max-width: 72rem; margin: 0 auto; padding: 1rem 1.25rem 0;
+      display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 1rem;
+      position: relative; z-index: 5;
+    }
+    header.site img { height: 52px; width: auto; max-width: min(210px, 55vw); }
+    nav { display: flex; flex-wrap: wrap; gap: 0.5rem 1.25rem; font-size: 0.88rem; font-weight: 600; }
+    nav a { color: var(--ink); }
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center;
+      padding: 0.7rem 1.35rem; border-radius: 10px; font-weight: 700; font-size: 0.85rem;
+      border: none; cursor: pointer; text-decoration: none !important;
+    }
+    .btn-red { background: var(--red); color: #fff; }
+    .btn-red:hover { background: #9f1239; color: #fff; }
+    .btn-outline { background: #fff; color: var(--ink); border: 2px solid var(--ink); }
+    .hero-wrap {
+      position: relative;
+      padding: 0 1.25rem 3rem;
+      margin-top: 0.5rem;
+    }
+    .hero-blob {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      top: -20px;
+      width: min(920px, 100%);
+      height: 420px;
+      background: var(--yellow);
+      border-radius: 45% 55% 40% 60% / 55% 45% 55% 45%;
+      filter: drop-shadow(0 20px 40px rgba(245,197,24,0.25));
+      z-index: 0;
+    }
+    .hero-blob::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(105deg, rgba(255,255,255,0.35) 0%, transparent 55%);
+      border-radius: inherit;
+    }
+    .hero {
+      position: relative;
+      z-index: 1;
+      max-width: 72rem;
+      margin: 0 auto;
+      padding: 3rem 0 1rem;
+      display: grid;
+      gap: 2rem;
+    }
+    @media (min-width: 768px) {
+      .hero { grid-template-columns: 1.15fr 0.85fr; align-items: center; padding-top: 4rem; }
+    }
+    .hero h1 {
+      font-size: clamp(2rem, 5vw, 3rem);
+      font-weight: 800;
+      line-height: 1.08;
+      letter-spacing: -0.02em;
+      max-width: 16ch;
+    }
+    .hero h1 em {
+      font-style: normal;
+      color: var(--red);
+    }
+    .hero .intro { margin-top: 1rem; font-size: 1.05rem; max-width: 34rem; color: #374151; }
+    .hero-actions { margin-top: 1.5rem; display: flex; flex-wrap: wrap; gap: 0.75rem; }
+    .stats {
+      display: grid;
+      gap: 0.75rem;
+      background: var(--white);
+      border-radius: 16px;
+      padding: 1.25rem;
+      box-shadow: 0 16px 48px rgba(0,0,0,0.08);
+      border: 1px solid rgba(0,0,0,0.06);
+    }
+    .stats div {
+      padding: 0.75rem 0;
+      border-bottom: 1px dashed #e5e7eb;
+    }
+    .stats div:last-child { border-bottom: none; }
+    .stats dt { font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--muted); font-weight: 700; }
+    .stats dd { font-size: 1rem; font-weight: 700; margin-top: 0.2rem; }
+    .wave {
+      height: 48px;
+      background: var(--yellow-soft);
+      clip-path: ellipse(120% 100% at 50% 100%);
+      margin-top: -1px;
+    }
+    main { max-width: 72rem; margin: 0 auto; padding: 2rem 1.25rem 4rem; }
+    .section-label {
+      display: inline-block;
+      font-size: 0.72rem;
+      font-weight: 800;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--red);
+      margin-bottom: 0.35rem;
+    }
+    .section-title {
+      font-size: 1.65rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      margin-bottom: 1.25rem;
+    }
+    section { margin-bottom: 3rem; }
+    .actions {
+      display: grid;
+      gap: 1rem;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    }
+    .action-card {
+      background: var(--yellow-soft);
+      border-radius: 14px;
+      padding: 1.25rem 1.35rem;
+      border-left: 4px solid var(--blue);
+    }
+    .action-card:nth-child(2) { border-left-color: var(--red); }
+    .action-card:nth-child(3) { border-left-color: var(--yellow); background: #fff; border: 1px solid #eee; border-left-width: 4px; border-left-color: var(--yellow); }
+    .action-card:nth-child(4) { border-left-color: var(--blue); }
+    .action-card h3 { font-size: 1rem; font-weight: 700; margin-bottom: 0.35rem; }
+    .action-card p { font-size: 0.88rem; color: var(--muted); }
+    .split {
+      display: grid;
+      gap: 2rem;
+    }
+    @media (min-width: 900px) {
+      .split { grid-template-columns: 1.2fr 0.8fr; align-items: start; }
+    }
+    .news-list { list-style: none; display: grid; gap: 0.75rem; }
+    .news-list li {
+      background: #fff;
+      border: 1px solid #eee;
+      border-radius: 12px;
+      padding: 1rem 1.15rem;
+      transition: border-color 0.15s;
+    }
+    .news-list li:hover { border-color: var(--yellow); }
+    .news-list time { font-size: 0.75rem; font-weight: 700; color: var(--blue); }
+    .news-list h3 { font-size: 1rem; margin: 0.35rem 0; font-weight: 700; }
+    .news-list p { font-size: 0.88rem; color: var(--muted); }
+    .docs-stack { display: grid; gap: 0.65rem; }
+    .doc-pill {
+      display: flex; align-items: center; justify-content: space-between; gap: 1rem;
+      padding: 0.85rem 1rem;
+      background: var(--ink);
+      color: #fff;
+      border-radius: 12px;
+      font-size: 0.88rem;
+    }
+    .doc-pill:nth-child(2) { background: var(--blue); }
+    .doc-pill:nth-child(3) { background: var(--red); }
+    .doc-pill .tag {
+      font-size: 0.65rem; font-weight: 800; letter-spacing: 0.08em;
+      background: rgba(255,255,255,0.2); padding: 0.2rem 0.45rem; border-radius: 4px;
+    }
+    .doc-pill a { color: var(--yellow); font-size: 0.8rem; }
+    .bureau {
+      display: flex; flex-wrap: wrap; align-items: center; gap: 1.25rem;
+      padding: 1.5rem;
+      border-radius: 16px;
+      background: linear-gradient(135deg, var(--yellow-soft) 0%, #fff 100%);
+      border: 2px solid var(--yellow);
+    }
+    .bureau-photo {
+      width: 96px; height: 96px; border-radius: 50%;
+      background: var(--white); border: 3px solid var(--red);
+      display: flex; align-items: center; justify-content: center;
+      font-weight: 800; font-size: 1.75rem; color: var(--red);
+    }
+    .bureau h3 { font-size: 1.25rem; font-weight: 800; }
+    .bureau p { color: var(--muted); font-size: 0.92rem; }
+    footer.site {
+      background: var(--ink);
+      color: #d1d5db;
+      padding: 2rem 1.25rem;
+      font-size: 0.85rem;
+    }
+    footer .inner { max-width: 72rem; margin: 0 auto; }
+    footer strong { color: #fff; }
+    footer a { color: var(--yellow); }
+  </style>
+</head>
+<body>
+  <a class="back" href="index.html">← Maquettes</a>
+
+  <header class="site">
+    <a href="home-territoire.html"><img src="../assets/logo-codep.jpg" alt="CODEP 66" width="200" height="120" /></a>
+    <nav aria-label="Navigation principale">
+      <a href="home-territoire.html" aria-current="page">Accueil</a>
+      <a href="clubs-territoire.html">Clubs</a>
+      <a href="#">Bureau</a>
+      <a href="#">Actualités</a>
+      <a href="#">Documents</a>
+      <a href="#">Contact</a>
+    </nav>
+    <a class="btn btn-red" href="clubs-territoire.html">Annuaire clubs</a>
+  </header>
+
+  <div class="hero-wrap">
+    <div class="hero-blob" aria-hidden="true"></div>
+    <section class="hero" aria-labelledby="hero-title">
+      <div>
+        <h1 id="hero-title">Le comité des <em>Pyrénées-Orientales</em> aux côtés des clubs</h1>
+        <p class="intro">Formations, TDP, labels et publications officielles : une interface claire pour les bénévoles et responsables de clubs affiliés FFTA.</p>
+        <div class="hero-actions">
+          <a class="btn btn-red" href="#">Actualités du 66</a>
+          <a class="btn btn-outline" href="#">CR & documents PDF</a>
+        </div>
+      </div>
+      <dl class="stats">
+        <div><dt>Permanence</dt><dd>Maison des sports · Perpignan</dd></div>
+        <div><dt>Contact</dt><dd>codeptiralarc66@gmail.com</dd></div>
+        <div><dt>Clubs</dt><dd>12 structures affiliées</dd></div>
+      </dl>
+    </section>
+  </div>
+  <div class="wave" aria-hidden="true"></div>
+
+  <main>
+    <section aria-labelledby="actions-h">
+      <span class="section-label">Actions</span>
+      <h2 class="section-title" id="actions-h">Services pour les clubs du département</h2>
+      <div class="actions">
+        <article class="action-card">
+          <h3>Formations</h3>
+          <p>Encadrant de club et perfectionnement — dates et inscriptions.</p>
+        </article>
+        <article class="action-card">
+          <h3>Compétitions</h3>
+          <p>TDP et championnats départementaux, calendrier partagé.</p>
+        </article>
+        <article class="action-card">
+          <h3>Labels FFTA</h3>
+          <p>École de tir, excellence — accompagnement des dossiers.</p>
+        </article>
+        <article class="action-card">
+          <h3>Liaison CD66</h3>
+          <p>Permanence sur rendez-vous pour les présidents et secrétaires.</p>
+        </article>
+        <article class="action-card" style="grid-column:1/-1;border-left-color:var(--red)">
+          <h3><a href="clubs-territoire.html">Annuaire des clubs</a></h3>
+          <p>Tous les clubs affiliés : lien site web ou <a href="club-territoire.html">fiche CODEP</a> si pas de site.</p>
+        </article>
+      </div>
+    </section>
+
+    <section aria-labelledby="news-docs">
+      <div class="split">
+        <div>
+          <span class="section-label">Fil d’info</span>
+          <h2 class="section-title" id="news-docs">Actualités</h2>
+          <ul class="news-list">
+            <li>
+              <time datetime="2026-09-15">15 sept. 2026</time>
+              <h3>Formation encadrant de club — rentrée</h3>
+              <p>19-20 septembre à Perpignan, inscriptions ouvertes.</p>
+            </li>
+            <li>
+              <time datetime="2026-09-02">2 sept. 2026</time>
+              <h3>Calendrier TDP 2026-2027</h3>
+              <p>Toutes les dates pour les clubs du département.</p>
+            </li>
+            <li>
+              <time datetime="2026-07-10">10 juil. 2026</time>
+              <h3>Convocation AG 2026</h3>
+              <p>Ordre du jour et pièces jointes en ligne.</p>
+            </li>
+          </ul>
+          <p style="margin-top:1rem"><a href="#">Toutes les actualités →</a></p>
+        </div>
+        <div>
+          <span class="section-label">Publications</span>
+          <h2 class="section-title">CR & officiels</h2>
+          <div class="docs-stack">
+            <div class="doc-pill">
+              <span><span class="tag">CR</span> Bureau — 12 juin 2026</span>
+              <a href="#">PDF</a>
+            </div>
+            <div class="doc-pill">
+              <span><span class="tag">Officiel</span> Convocation AG 2026</span>
+              <a href="#">PDF</a>
+            </div>
+            <div class="doc-pill">
+              <span><span class="tag">CR</span> AG 2025</span>
+              <a href="#">PDF</a>
+            </div>
+          </div>
+          <p style="margin-top:1rem"><a href="#">Bibliothèque documentaire →</a></p>
+        </div>
+      </div>
+    </section>
+
+    <section aria-labelledby="bureau-h">
+      <span class="section-label">Gouvernance</span>
+      <h2 class="section-title" id="bureau-h">Le bureau</h2>
+      <div class="bureau">
+        <div class="bureau-photo" aria-hidden="true">AB</div>
+        <div style="flex:1">
+          <h3>Annick BELLET</h3>
+          <p><strong>Présidente</strong> — Comité départemental de tir à l’arc des P.O.</p>
+        </div>
+        <a class="btn btn-outline" href="#">Tous les élus</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site">
+    <div class="inner">
+      <p><strong>CODEP Tir à l’arc 66</strong> · Maison des sports, rue Duguay Trouin, 66000 Perpignan</p>
+      <p>06 88 07 15 09 · SIRET 453 071 425 00012 · <a href="index.html">Retour aux maquettes</a></p>
+    </div>
+  </footer>
+</body>
+</html>

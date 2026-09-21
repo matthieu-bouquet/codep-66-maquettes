@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Vallespir — CODEP 66 (créatif)</title>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800&family=Syne:wght@700;800&display=swap" rel="stylesheet" />
+  <style>
+    :root { --red:#dc2626; --gold:#fbbf24; --navy:#1e3a5f; --cream:#fffbeb; --ink:#1c1917; --cyan:#0891b2; }
+    * { box-sizing:border-box; margin:0; padding:0; }
+    body { font-family:"Outfit",system-ui,sans-serif; background:var(--cream); color:var(--ink); line-height:1.5; }
+    a { color:var(--navy); font-weight:700; text-decoration:none; }
+    a:hover { color:var(--red); }
+    .back { position:fixed; top:0.75rem; left:0.75rem; z-index:100; background:#fff; border:2px solid var(--ink); padding:0.35rem 0.65rem; font-size:0.8rem; color:var(--ink); }
+    header.site {
+      background: var(--navy);
+      color: #fff;
+      clip-path: polygon(0 0, 100% 0, 100% 88%, 0 100%);
+      padding: 1rem 1.25rem 2.5rem;
+    }
+    .header-row {
+      max-width: 72rem; margin: 0 auto;
+      display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 1rem;
+    }
+    .header-row img { height: 48px; width: auto; max-width: min(200px, 50vw); }
+    nav { display: flex; flex-wrap: wrap; gap: 0.5rem 1.25rem; font-size: 0.85rem; font-weight: 700; text-transform: uppercase; }
+    nav a { color: var(--gold); }
+    nav a:hover { color: #fff; }
+    nav a[aria-current="page"] { color: #fff; }
+    .split { display:grid; }
+    @media (min-width:768px) { .split { grid-template-columns:1fr 1fr; min-height:calc(100vh - 120px); } }
+    .visual { background:var(--red); color:#fff; padding:2rem 1.5rem; display:flex; flex-direction:column; justify-content:flex-end; position:relative; overflow:hidden; min-height:280px; }
+    .visual::before {
+      content:""; position:absolute; width:280px; height:280px; border:3px solid rgba(255,255,255,0.35);
+      border-radius:50%; top:10%; right:-40px;
+    }
+    .visual::after {
+      content:""; position:absolute; width:180px; height:180px; border:3px solid var(--gold);
+      border-radius:50%; top:18%; right:20px;
+    }
+    .visual h1 { font-family:"Syne",sans-serif; font-size:clamp(2rem,5vw,3rem); text-transform:uppercase; position:relative; z-index:1; line-height:0.95; }
+    .visual .ville { font-size:1.25rem; margin-top:0.5rem; color:var(--gold); position:relative; z-index:1; font-weight:800; }
+    .visual .stamp { margin-top:1.5rem; position:relative; z-index:1; display:inline-block; background:var(--ink); color:var(--gold); font-size:0.7rem; font-weight:800; letter-spacing:0.1em; text-transform:uppercase; padding:0.4rem 0.75rem; transform:rotate(-2deg); }
+    .content { padding:2rem 1.5rem 3rem; background:#fff; border-left:3px solid var(--ink); }
+    .crumb { font-size:0.8rem; margin-bottom:1.5rem; color:var(--ink); }
+    .crumb a { color:var(--ink); font-weight:600; }
+    .block { margin-bottom:1.75rem; }
+    .block h2 { font-family:"Syne",sans-serif; font-size:0.85rem; text-transform:uppercase; color:var(--red); margin-bottom:0.5rem; }
+    .block p, .block li { font-size:0.95rem; }
+    .block ul { margin-left:1.1rem; }
+    .contact { border:3px solid var(--ink); padding:1rem; background:var(--gold); box-shadow:4px 4px 0 var(--navy); }
+    .contact p { font-size:0.9rem; margin-top:0.35rem; }
+    .contact p:first-child { margin-top:0; }
+    footer.site { background:var(--ink); color:var(--gold); text-align:center; padding:1.25rem; font-size:0.85rem; }
+    footer a { color:#fff; }
+  </style>
+</head>
+<body>
+  <a class="back" href="index.html">← Maquettes</a>
+
+  <header class="site">
+    <div class="header-row">
+      <a href="home-creatif.html"><img src="../assets/logo-codep.jpg" alt="CODEP 66" width="180" height="108" /></a>
+      <nav aria-label="Navigation principale">
+        <a href="home-creatif.html">Accueil</a>
+        <a href="clubs-creatif.html" aria-current="page">Clubs</a>
+        <a href="#">Bureau</a>
+        <a href="#">Actus</a>
+        <a href="#">Docs</a>
+      </nav>
+    </div>
+  </header>
+
+  <div class="split">
+    <div class="visual">
+      <h1>Archers du Vallespir</h1>
+      <p class="ville">Céret</p>
+      <span class="stamp">Fiche CODEP · sans site web</span>
+    </div>
+    <div class="content">
+      <p class="crumb"><a href="home-creatif.html">Accueil</a> · <a href="clubs-creatif.html">Clubs</a> · Vallespir</p>
+      <div class="block">
+        <h2>Présentation</h2>
+        <p>Club de tir à l’arc du Vallespir. Cette page sert de vitrine lorsque le club n’a pas de site propre — contenu validé par les responsables et publié par le CODEP.</p>
+      </div>
+      <div class="block">
+        <h2>Horaires</h2>
+        <ul>
+          <li>Mar 19h–21h · Mer 14h–17h (jeunes)</li>
+          <li>Sam 9h–12h</li>
+        </ul>
+      </div>
+      <div class="block">
+        <h2>Contact</h2>
+        <div class="contact">
+          <p><strong>Manuel THIBAUX</strong> — Président</p>
+          <p><a href="mailto:arcduvallespir@gmail.com">arcduvallespir@gmail.com</a></p>
+          <p>06 17 62 09 50</p>
+          <p>Stand · 66400 Céret</p>
+        </div>
+      </div>
+      <p style="margin-top:1rem;font-size:0.88rem"><a href="clubs-creatif.html">← Retour à l’annuaire</a></p>
+    </div>
+  </div>
+
+  <footer class="site">
+    <a href="home-creatif.html">Accueil créatif</a>
+  </footer>
+</body>
+</html>

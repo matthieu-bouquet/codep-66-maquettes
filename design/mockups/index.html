@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>CODEP 66 — Maquettes d’accueil</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --ink: #1a1a1a;
+      --muted: #5c6370;
+      --bg: #f4f6f8;
+      --card: #fff;
+      --border: #e2e8f0;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: "DM Sans", system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--ink);
+      line-height: 1.5;
+      padding: 2rem 1.25rem 4rem;
+    }
+    .wrap { max-width: 960px; margin: 0 auto; }
+    h1 { font-size: clamp(1.75rem, 4vw, 2.25rem); margin-bottom: 0.5rem; }
+    .lead { color: var(--muted); max-width: 42rem; margin-bottom: 2rem; }
+    .mockup-grid {
+      display: grid;
+      gap: 1rem;
+      margin-bottom: 3rem;
+    }
+    @media (min-width: 640px) {
+      .mockup-grid { grid-template-columns: repeat(3, 1fr); }
+    }
+    .mockup-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      overflow: hidden;
+      text-decoration: none;
+      color: inherit;
+      transition: transform 0.15s, box-shadow 0.15s;
+    }
+    .mockup-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 32px rgba(0,0,0,0.08);
+    }
+    .mockup-card__preview {
+      height: 88px;
+      display: flex;
+      align-items: flex-end;
+      padding: 0.75rem 1rem;
+      font-weight: 700;
+      font-size: 0.85rem;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+    .mockup-card__body { padding: 1rem 1.25rem 1.25rem; }
+    .mockup-card__body h2 { font-size: 1.1rem; margin-bottom: 0.35rem; }
+    .mockup-card__body p { font-size: 0.9rem; color: var(--muted); }
+    .mockup-card__links {
+      margin-top: 0.75rem;
+      padding-top: 0.75rem;
+      border-top: 1px solid var(--border);
+      font-size: 0.8rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.35rem 0.75rem;
+    }
+    .mockup-card__links a { color: var(--ink); font-weight: 600; text-decoration: none; }
+    .mockup-card__links a:hover { text-decoration: underline; color: #1d5fa7; }
+    .preview-modern {
+      background: linear-gradient(135deg, #1d5fa7 0%, #c41e3a 55%, #f5c518 100%);
+      color: #fff;
+    }
+    .preview-territoire {
+      background: radial-gradient(circle at 30% 50%, #f5c518 0%, #fff8dc 45%, #fff 100%);
+      color: #1a1a1a;
+    }
+    .preview-creatif {
+      background: linear-gradient(120deg, #dc2626 45%, #fbbf24 45%, #1e3a5f 100%);
+      color: #fff;
+    }
+    h2.section-title {
+      font-size: 1.35rem;
+      margin: 2.5rem 0 0.75rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--border);
+    }
+    h2.section-title:first-of-type { border-top: none; padding-top: 0; }
+    .palette-note {
+      font-size: 0.9rem;
+      color: var(--muted);
+      margin-bottom: 1rem;
+    }
+    .palette {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin-bottom: 1.5rem;
+    }
+    .swatch {
+      width: 7.5rem;
+      border-radius: 10px;
+      overflow: hidden;
+      border: 1px solid rgba(0,0,0,0.06);
+      background: var(--card);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+    }
+    .swatch__color { height: 4.5rem; }
+    .swatch__meta {
+      padding: 0.5rem 0.6rem 0.65rem;
+      font-size: 0.72rem;
+      line-height: 1.35;
+    }
+    .swatch__name { font-weight: 600; color: var(--ink); display: block; }
+    .swatch__hex { color: var(--muted); font-family: ui-monospace, monospace; }
+    .logo-ref {
+      margin-top: 2rem;
+      padding: 1rem;
+      background: var(--card);
+      border-radius: 12px;
+      border: 1px solid var(--border);
+    }
+    .logo-ref img { max-width: 100%; height: auto; max-height: 120px; }
+    .logo-ref p { font-size: 0.85rem; color: var(--muted); margin-top: 0.5rem; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <h1>CODEP 66 — Propositions d’accueil</h1>
+    <p class="lead">
+      Trois directions pour le site du comité départemental. Ouvrez les HTML en local — aucun build requis.
+    </p>
+
+    <div class="mockup-grid">
+      <div class="mockup-card">
+        <a href="home-modern.html" style="color:inherit;text-decoration:none">
+          <div class="mockup-card__preview preview-modern">Moderne</div>
+          <div class="mockup-card__body">
+            <h2>Portail logo</h2>
+            <p>Jaune, rouge et bleu du logo — hero dégradé, bento, cartes arrondies.</p>
+          </div>
+        </a>
+        <div class="mockup-card__body" style="padding-top:0">
+          <div class="mockup-card__links">
+            <a href="home-modern.html">Accueil</a>
+            <a href="clubs-modern.html">Annuaire</a>
+            <a href="club-modern.html">Fiche club</a>
+          </div>
+        </div>
+      </div>
+      <div class="mockup-card">
+        <a href="home-territoire.html" style="color:inherit;text-decoration:none">
+          <div class="mockup-card__preview preview-territoire">Territoire</div>
+          <div class="mockup-card__body">
+            <h2>Forme 66</h2>
+            <p>Blob jaune du logo, typo Jakarta, listes claires — chaleureux et actuel.</p>
+          </div>
+        </a>
+        <div class="mockup-card__body" style="padding-top:0">
+          <div class="mockup-card__links">
+            <a href="home-territoire.html">Accueil</a>
+            <a href="clubs-territoire.html">Annuaire</a>
+            <a href="club-territoire.html">Fiche club</a>
+          </div>
+        </div>
+      </div>
+      <div class="mockup-card">
+        <a href="home-creatif.html" style="color:inherit;text-decoration:none">
+          <div class="mockup-card__preview preview-creatif">Créatif</div>
+          <div class="mockup-card__body">
+            <h2>Éditorial sport</h2>
+            <p>Blocs contrastés, diagonales, cible SVG — impact visuel fort.</p>
+          </div>
+        </a>
+        <div class="mockup-card__body" style="padding-top:0">
+          <div class="mockup-card__links">
+            <a href="home-creatif.html">Accueil</a>
+            <a href="clubs-creatif.html">Annuaire</a>
+            <a href="club-creatif.html">Fiche club</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <h2 class="section-title">Charte — Moderne (alignée logo)</h2>
+    <p class="palette-note">Bleu cible, rouge « 66 », jaune carte — base pour un futur @theme Astro.</p>
+    <div class="palette" aria-label="Palette moderne">
+      <div class="swatch">
+        <div class="swatch__color" style="background:#f5c518"></div>
+        <div class="swatch__meta"><span class="swatch__name">Jaune logo</span><span class="swatch__hex">#F5C518</span></div>
+      </div>
+      <div class="swatch">
+        <div class="swatch__color" style="background:#c41e3a"></div>
+        <div class="swatch__meta"><span class="swatch__name">Rouge 66</span><span class="swatch__hex">#C41E3A</span></div>
+      </div>
+      <div class="swatch">
+        <div class="swatch__color" style="background:#1d5fa7"></div>
+        <div class="swatch__meta"><span class="swatch__name">Bleu cible</span><span class="swatch__hex">#1D5FA7</span></div>
+      </div>
+      <div class="swatch">
+        <div class="swatch__color" style="background:#fafaf8;border-bottom:1px solid #e8e4dc"></div>
+        <div class="swatch__meta"><span class="swatch__name">Fond</span><span class="swatch__hex">#FAFAF8</span></div>
+      </div>
+      <div class="swatch">
+        <div class="swatch__color" style="background:#1a1a1a"></div>
+        <div class="swatch__meta"><span class="swatch__name">Texte</span><span class="swatch__hex">#1A1A1A</span></div>
+      </div>
+    </div>
+
+    <h2 class="section-title">Charte — Territoire</h2>
+    <p class="palette-note">Même ADN couleur, mise en page plus organique (forme département + fond clair).</p>
+    <div class="palette" aria-label="Palette territoire">
+      <div class="swatch">
+        <div class="swatch__color" style="background:#f5c518"></div>
+        <div class="swatch__meta"><span class="swatch__name">Jaune blob</span><span class="swatch__hex">#F5C518</span></div>
+      </div>
+      <div class="swatch">
+        <div class="swatch__color" style="background:#fff8dc"></div>
+        <div class="swatch__meta"><span class="swatch__name">Jaune doux</span><span class="swatch__hex">#FFF8DC</span></div>
+      </div>
+      <div class="swatch">
+        <div class="swatch__color" style="background:#c41e3a"></div>
+        <div class="swatch__meta"><span class="swatch__name">CTA rouge</span><span class="swatch__hex">#C41E3A</span></div>
+      </div>
+      <div class="swatch">
+        <div class="swatch__color" style="background:#1d5fa7"></div>
+        <div class="swatch__meta"><span class="swatch__name">Liens bleu</span><span class="swatch__hex">#1D5FA7</span></div>
+      </div>
+      <div class="swatch">
+        <div class="swatch__color" style="background:#ffffff;border-bottom:1px solid #eee"></div>
+        <div class="swatch__meta"><span class="swatch__name">Surface</span><span class="swatch__hex">#FFFFFF</span></div>
+      </div>
+    </div>
+
+    <h2 class="section-title">Charte — Créatif</h2>
+    <p class="palette-note">Variante plus saturée et éditoriale — blocs pleins et contrastes marqués.</p>
+    <div class="palette" aria-label="Palette créatif">
+      <div class="swatch">
+        <div class="swatch__color" style="background:#dc2626"></div>
+        <div class="swatch__meta"><span class="swatch__name">Rouge vif</span><span class="swatch__hex">#DC2626</span></div>
+      </div>
+      <div class="swatch">
+        <div class="swatch__color" style="background:#fbbf24"></div>
+        <div class="swatch__meta"><span class="swatch__name">Or</span><span class="swatch__hex">#FBBF24</span></div>
+      </div>
+      <div class="swatch">
+        <div class="swatch__color" style="background:#1e3a5f"></div>
+        <div class="swatch__meta"><span class="swatch__name">Bleu nuit</span><span class="swatch__hex">#1E3A5F</span></div>
+      </div>
+      <div class="swatch">
+        <div class="swatch__color" style="background:#0891b2"></div>
+        <div class="swatch__meta"><span class="swatch__name">Cyan</span><span class="swatch__hex">#0891B2</span></div>
+      </div>
+      <div class="swatch">
+        <div class="swatch__color" style="background:#fffbeb;border-bottom:1px solid #fde68a"></div>
+        <div class="swatch__meta"><span class="swatch__name">Crème</span><span class="swatch__hex">#FFFBEB</span></div>
+      </div>
+    </div>
+
+    <div class="logo-ref">
+      <img src="../assets/logo-codep.jpg" alt="Logo CODEP 66" width="417" height="250" style="max-width:100%;height:auto" />
+      <p>Logo officiel du comité.</p>
+    </div>
+  </div>
+</body>
+</html>

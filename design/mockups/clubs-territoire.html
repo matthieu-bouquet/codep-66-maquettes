@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Annuaire des clubs — CODEP 66 (territoire)</title>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    :root { --yellow:#f5c518; --yellow-soft:#fff8dc; --red:#c41e3a; --blue:#1d5fa7; --ink:#1a1a1a; --muted:#64748b; }
+    * { box-sizing:border-box; margin:0; padding:0; }
+    body { font-family:"Plus Jakarta Sans",system-ui,sans-serif; color:var(--ink); background:#fff; line-height:1.55; }
+    a { color:var(--blue); font-weight:600; text-decoration:none; }
+    a:hover { color:var(--red); }
+    .back { position:absolute; top:1rem; left:1rem; font-size:0.8rem; z-index:5; background:#fff; padding:0.35rem 0.6rem; border-radius:8px; }
+    header.site { max-width:72rem; margin:0 auto; padding:1rem 1.25rem; display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:1rem; }
+    header img { height:52px; width:auto; }
+    nav { display:flex; flex-wrap:wrap; gap:1rem; font-size:0.88rem; font-weight:600; }
+    nav a[aria-current="page"] { color:var(--red); }
+    .btn-red { background:var(--red); color:#fff; padding:0.7rem 1.25rem; border-radius:10px; font-weight:700; font-size:0.85rem; text-decoration:none !important; }
+    .banner { background:var(--yellow-soft); padding:2rem 1.25rem; border-bottom:3px solid var(--yellow); }
+    .banner-inner { max-width:72rem; margin:0 auto; }
+    .banner h1 { font-size:clamp(1.75rem,4vw,2.35rem); font-weight:800; letter-spacing:-0.02em; }
+    .banner p { margin-top:0.5rem; max-width:40rem; color:var(--muted); }
+    main { max-width:72rem; margin:0 auto; padding:2rem 1.25rem 4rem; }
+    .list { list-style:none; display:grid; gap:0.65rem; }
+    .list li { display:grid; gap:0.35rem; padding:1rem 1.15rem; background:#fff; border:1px solid #eee; border-radius:12px; border-left:4px solid var(--blue); }
+    @media (min-width:640px) {
+      .list li { grid-template-columns:1fr auto auto; align-items:center; gap:1rem; }
+    }
+    .list li.no-site { border-left-color:var(--red); }
+    .list h2 { font-size:1rem; font-weight:700; }
+    .commune { font-size:0.85rem; color:var(--muted); font-weight:500; }
+    .pill { font-size:0.7rem; font-weight:800; text-transform:uppercase; letter-spacing:0.05em; padding:0.25rem 0.5rem; border-radius:6px; background:var(--yellow-soft); justify-self:start; }
+    .actions { display:flex; gap:0.75rem; font-size:0.88rem; flex-wrap:wrap; }
+    .note { margin-top:2rem; font-size:0.88rem; color:var(--muted); padding:1rem; background:var(--yellow-soft); border-radius:12px; }
+    footer { background:var(--ink); color:#d1d5db; padding:1.5rem 1.25rem; font-size:0.85rem; text-align:center; }
+    footer a { color:var(--yellow); }
+  </style>
+</head>
+<body>
+  <a class="back" href="index.html">← Maquettes</a>
+  <header class="site">
+    <a href="home-territoire.html"><img src="../assets/logo-codep.jpg" alt="CODEP 66" width="200" height="120" /></a>
+    <nav>
+      <a href="home-territoire.html">Accueil</a>
+      <a href="clubs-territoire.html" aria-current="page">Clubs</a>
+      <a href="#">Actualités</a>
+      <a href="#">Documents</a>
+    </nav>
+    <a class="btn-red" href="home-territoire.html">Accueil</a>
+  </header>
+  <div class="banner">
+    <div class="banner-inner">
+      <h1>Clubs du 66</h1>
+      <p>Trouver un club, contacter un responsable ou accéder au site web. Sans site : fiche publiée par le CODEP.</p>
+    </div>
+  </div>
+  <main>
+    <ul class="list">
+      <li>
+        <div><h2>Les Archers de Bompas</h2><span class="commune">Bompas</span></div>
+        <span class="pill">Site web</span>
+        <div class="actions"><a href="https://archers-bompas.fr" target="_blank" rel="noopener">archers-bompas.fr ↗</a></div>
+      </li>
+      <li>
+        <div><h2>Les Archers Catalans</h2><span class="commune">Perpignan</span></div>
+        <span class="pill">Site web</span>
+        <div class="actions"><a href="http://archerscatalans.info" target="_blank" rel="noopener">archerscatalans.info ↗</a></div>
+      </li>
+      <li class="no-site">
+        <div><h2>Les Archers du Vallespir</h2><span class="commune">Céret</span></div>
+        <span class="pill">Fiche CODEP</span>
+        <div class="actions"><a href="club-territoire.html">Voir la fiche →</a></div>
+      </li>
+      <li class="no-site">
+        <div><h2>Archers de Saint-Cyprien</h2><span class="commune">Saint-Cyprien</span></div>
+        <span class="pill">Fiche CODEP</span>
+        <div class="actions"><a href="club-territoire.html">Voir la fiche →</a></div>
+      </li>
+      <li>
+        <div><h2>Les Archers de Vinça</h2><span class="commune">Vinça</span></div>
+        <span class="pill">Site web</span>
+        <div class="actions"><a href="https://les-archers-de-vinca.fr" target="_blank" rel="noopener">Site ↗</a></div>
+      </li>
+      <li>
+        <div><h2>Les Archers du Conflent</h2><span class="commune">Prades</span></div>
+        <span class="pill">Site web</span>
+        <div class="actions"><a href="https://lesarchersduconflent.wordpress.com" target="_blank" rel="noopener">WordPress ↗</a></div>
+      </li>
+    </ul>
+    <p class="note">Modèle Sanity : type <strong>club</strong> avec champs nom, commune, siteUrl (optionnel), contenu riche pour la fiche, contact, horaires.</p>
+  </main>
+  <footer><a href="home-territoire.html">Accueil territoire</a></footer>
+</body>
+</html>

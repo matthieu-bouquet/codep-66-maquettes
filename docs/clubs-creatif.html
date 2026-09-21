@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Annuaire — CODEP 66 (créatif)</title>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800&family=Syne:wght@700;800&display=swap" rel="stylesheet" />
+  <style>
+    :root { --red:#dc2626; --gold:#fbbf24; --navy:#1e3a5f; --cream:#fffbeb; --ink:#1c1917; }
+    * { box-sizing:border-box; margin:0; padding:0; }
+    body { font-family:"Outfit",system-ui,sans-serif; background:var(--cream); color:var(--ink); }
+    a { color:var(--navy); font-weight:700; text-decoration:none; }
+    .back { position:fixed; top:0.75rem; left:0.75rem; z-index:10; background:#fff; border:2px solid var(--ink); padding:0.35rem 0.65rem; font-size:0.8rem; color:var(--ink); }
+    header { background:var(--navy); color:#fff; padding:1rem 1.25rem 2rem; clip-path:polygon(0 0,100% 0,100% 85%,0 100%); }
+    .header-row { max-width:72rem; margin:0 auto; display:flex; flex-wrap:wrap; justify-content:space-between; align-items:center; gap:1rem; }
+    header img { height:44px; width:auto; }
+    nav { display:flex; gap:1rem; font-size:0.8rem; font-weight:800; text-transform:uppercase; }
+    nav a { color:var(--gold); }
+    nav a[aria-current="page"] { color:#fff; }
+    main { max-width:72rem; margin:-0.5rem auto 0; padding:0 1.25rem 3rem; }
+    h1 { font-family:"Syne",sans-serif; font-size:clamp(2rem,5vw,2.75rem); text-transform:uppercase; margin-bottom:0.5rem; }
+    .lead { max-width:36rem; margin-bottom:1.5rem; }
+    .club-mosaic { display:grid; gap:0; border:3px solid var(--ink); }
+    @media (min-width:640px) { .club-mosaic { grid-template-columns:repeat(2,1fr); } }
+    .club-mosaic article { padding:1.25rem; border:1px solid var(--ink); min-height:130px; display:flex; flex-direction:column; gap:0.35rem; }
+    .club-mosaic article:nth-child(odd) { background:#fff; }
+    .club-mosaic article:nth-child(even) { background:var(--gold); }
+    .club-mosaic article.highlight { background:var(--red); color:#fff; }
+    .club-mosaic article.highlight a { color:var(--gold); }
+    .club-mosaic h2 { font-family:"Syne",sans-serif; font-size:1rem; text-transform:uppercase; }
+    .ville { font-size:0.85rem; opacity:0.85; }
+    .link-row { margin-top:auto; font-size:0.85rem; font-weight:800; text-transform:uppercase; }
+    .note { margin-top:1.5rem; border:2px dashed var(--ink); padding:1rem; font-size:0.88rem; }
+    footer { background:var(--ink); color:var(--gold); text-align:center; padding:1.25rem; font-size:0.85rem; }
+    footer a { color:#fff; }
+  </style>
+</head>
+<body>
+  <a class="back" href="index.html">← Maquettes</a>
+  <header>
+    <div class="header-row">
+      <a href="home-creatif.html"><img src="assets/logo-codep.jpg" alt="CODEP 66" width="160" height="96" /></a>
+      <nav>
+        <a href="home-creatif.html">Accueil</a>
+        <a href="clubs-creatif.html" aria-current="page">Clubs</a>
+        <a href="#">Actus</a>
+      </nav>
+    </div>
+  </header>
+  <main>
+    <h1>Annuaire clubs</h1>
+    <p class="lead">Site du club en lien direct · sinon fiche sur le CODEP.</p>
+    <div class="club-mosaic">
+      <article>
+        <h2>Archers de Bompas</h2>
+        <span class="ville">Bompas</span>
+        <span class="link-row"><a href="https://archers-bompas.fr" target="_blank" rel="noopener">Site ↗</a></span>
+      </article>
+      <article>
+        <h2>Archers Catalans</h2>
+        <span class="ville">Perpignan</span>
+        <span class="link-row"><a href="http://archerscatalans.info" target="_blank" rel="noopener">Site ↗</a></span>
+      </article>
+      <article class="highlight">
+        <h2>Archers du Vallespir</h2>
+        <span class="ville">Céret · fiche CODEP</span>
+        <span class="link-row"><a href="club-creatif.html">Ouvrir la fiche →</a></span>
+      </article>
+      <article class="highlight">
+        <h2>Archers St-Cyprien</h2>
+        <span class="ville">Saint-Cyprien · fiche CODEP</span>
+        <span class="link-row"><a href="club-creatif.html">Ouvrir la fiche →</a></span>
+      </article>
+      <article>
+        <h2>Archers de Vinça</h2>
+        <span class="ville">Vinça</span>
+        <span class="link-row"><a href="https://les-archers-de-vinca.fr" target="_blank" rel="noopener">Site ↗</a></span>
+      </article>
+      <article>
+        <h2>Archers du Conflent</h2>
+        <span class="ville">Prades</span>
+        <span class="link-row"><a href="https://lesarchersduconflent.wordpress.com" target="_blank" rel="noopener">Site ↗</a></span>
+      </article>
+    </div>
+    <p class="note">Les cartes rouges = clubs sans URL externe → page <code>/clubs/[slug]</code> sur le site CODEP.</p>
+  </main>
+  <footer><a href="home-creatif.html">Accueil créatif</a></footer>
+</body>
+</html>

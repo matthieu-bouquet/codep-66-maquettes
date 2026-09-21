@@ -1,0 +1,7 @@
+{
+  "name": "codep-66-maquettes",
+  "private": true,
+  "scripts": {
+    "sync:pages": "mkdir -p docs/assets && cp design/assets/logo-codep.jpg docs/assets/ && for f in design/mockups/*.html; do sed 's|../assets/|assets/|g' \"$f\" > \"docs/$(basename \"$f\")\"; done"
+  }
+}

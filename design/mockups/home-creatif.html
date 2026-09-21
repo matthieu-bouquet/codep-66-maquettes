@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>CODEP 66 — Maquette créative</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800&family=Syne:wght@700;800&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --red: #dc2626;
+      --gold: #fbbf24;
+      --navy: #1e3a5f;
+      --cyan: #0891b2;
+      --cream: #fffbeb;
+      --ink: #1c1917;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: "Outfit", system-ui, sans-serif; background: var(--cream); color: var(--ink); overflow-x: hidden; }
+    a { color: var(--navy); font-weight: 600; }
+    .back {
+      position: fixed; top: 0.75rem; left: 0.75rem; z-index: 100;
+      background: #fff; padding: 0.4rem 0.75rem; font-size: 0.8rem;
+      border: 2px solid var(--ink); text-decoration: none; color: var(--ink);
+    }
+    header.site {
+      background: var(--navy);
+      color: #fff;
+      clip-path: polygon(0 0, 100% 0, 100% 88%, 0 100%);
+      padding: 1rem 1.25rem 2.5rem;
+    }
+    .header-row {
+      max-width: 72rem; margin: 0 auto;
+      display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 1rem;
+    }
+    .header-row img { height: 48px; width: auto; max-width: min(200px, 50vw); }
+    nav { display: flex; flex-wrap: wrap; gap: 0.5rem 1.25rem; font-size: 0.85rem; font-weight: 700; text-transform: uppercase; }
+    nav a { color: var(--gold); text-decoration: none; }
+    nav a:hover { color: #fff; }
+    .hero {
+      position: relative;
+      max-width: 72rem;
+      margin: -1rem auto 0;
+      padding: 0 1.25rem 3rem;
+      display: grid;
+      gap: 2rem;
+    }
+    @media (min-width: 900px) {
+      .hero { grid-template-columns: 1fr 280px; align-items: center; padding-top: 1rem; }
+    }
+    .hero-copy { position: relative; z-index: 1; }
+    .hero-copy .tag {
+      display: inline-block;
+      background: var(--red);
+      color: #fff;
+      font-weight: 800;
+      font-size: 0.75rem;
+      letter-spacing: 0.15em;
+      padding: 0.35rem 0.75rem;
+      transform: rotate(-2deg);
+      margin-bottom: 1rem;
+    }
+    .hero-copy h1 {
+      font-family: "Syne", sans-serif;
+      font-size: clamp(2.25rem, 6vw, 3.75rem);
+      line-height: 0.95;
+      text-transform: uppercase;
+      color: var(--navy);
+    }
+    .hero-copy h1 span { color: var(--red); display: block; }
+    .hero-copy p { margin: 1.25rem 0; font-size: 1.1rem; max-width: 28rem; line-height: 1.5; }
+    .hero-btns { display: flex; flex-wrap: wrap; gap: 0.75rem; }
+    .btn {
+      display: inline-block; padding: 0.75rem 1.5rem; font-weight: 800; text-transform: uppercase;
+      font-size: 0.8rem; letter-spacing: 0.06em; text-decoration: none; border: 3px solid var(--ink);
+    }
+    .btn-red { background: var(--red); color: #fff; box-shadow: 4px 4px 0 var(--ink); }
+    .btn-gold { background: var(--gold); color: var(--ink); box-shadow: 4px 4px 0 var(--navy); }
+    .target-wrap {
+      position: relative;
+      justify-self: center;
+    }
+    .target-wrap svg { width: min(260px, 70vw); height: auto; display: block; }
+    @keyframes pulse-ring {
+      0%, 100% { transform: scale(1); opacity: 1; }
+      50% { transform: scale(1.03); opacity: 0.92; }
+    }
+    @media (prefers-reduced-motion: no-preference) {
+      .target-wrap svg { animation: pulse-ring 4s ease-in-out infinite; }
+    }
+    .arrow-path {
+      position: absolute;
+      left: -20%;
+      top: 40%;
+      width: 140%;
+      height: 200px;
+      pointer-events: none;
+      opacity: 0.35;
+      z-index: 0;
+    }
+    section.strip-red {
+      background: var(--red);
+      color: #fff;
+      padding: 2.5rem 1.25rem;
+      transform: skewY(-1.5deg);
+      margin: 2rem 0;
+    }
+    section.strip-red > * { transform: skewY(1.5deg); max-width: 72rem; margin: 0 auto; }
+    section.strip-red h2 {
+      font-family: "Syne", sans-serif;
+      font-size: 1.75rem;
+      text-transform: uppercase;
+      margin-bottom: 1.25rem;
+    }
+    .action-damier {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 0;
+      max-width: 72rem;
+      margin: 0 auto;
+      border: 3px solid var(--ink);
+    }
+    @media (min-width: 640px) { .action-damier { grid-template-columns: repeat(4, 1fr); } }
+    .action-damier article {
+      padding: 1.25rem;
+      min-height: 120px;
+      border: 1px solid rgba(0,0,0,0.08);
+      font-size: 0.9rem;
+    }
+    .action-damier article:nth-child(1) { background: var(--gold); }
+    .action-damier article:nth-child(2) { background: #fff; color: var(--ink); }
+    .action-damier article:nth-child(2) a { color: var(--navy); }
+    .action-damier article:nth-child(3) { background: var(--navy); color: #fff; }
+    .action-damier article:nth-child(4) { background: var(--cyan); color: #fff; }
+    .action-damier h3 { font-family: "Syne", sans-serif; font-size: 0.95rem; text-transform: uppercase; margin-bottom: 0.35rem; }
+    main { max-width: 72rem; margin: 0 auto; padding: 0 1.25rem 3rem; }
+    .section-title {
+      font-family: "Syne", sans-serif;
+      font-size: 1.5rem;
+      text-transform: uppercase;
+      color: var(--navy);
+      margin: 2.5rem 0 1rem;
+      display: flex; align-items: center; gap: 0.75rem;
+    }
+    .section-title::before {
+      content: "";
+      width: 48px; height: 4px;
+      background: var(--red);
+    }
+    .news-scroll {
+      display: flex; gap: 1rem;
+      overflow-x: auto;
+      padding-bottom: 0.5rem;
+      scroll-snap-type: x mandatory;
+    }
+    .news-scroll article {
+      flex: 0 0 min(280px, 85vw);
+      scroll-snap-align: start;
+      background: #fff;
+      border: 3px solid var(--ink);
+      padding: 1.25rem;
+      box-shadow: 6px 6px 0 var(--gold);
+    }
+    .news-scroll time { font-size: 0.75rem; font-weight: 700; color: var(--red); }
+    .news-scroll h3 { font-size: 1.05rem; margin: 0.5rem 0; line-height: 1.25; }
+    .docs-grid {
+      display: grid; gap: 1rem;
+    }
+    @media (min-width: 640px) { .docs-grid { grid-template-columns: repeat(3, 1fr); } }
+    .doc-card {
+      background: var(--navy);
+      color: #fff;
+      padding: 1.5rem;
+      border: 3px solid var(--ink);
+      position: relative;
+      min-height: 160px;
+    }
+    .doc-card:nth-child(2) { background: var(--red); }
+    .doc-card:nth-child(3) { background: #fff; color: var(--ink); }
+    .doc-card .pdf {
+      font-family: "Syne", sans-serif;
+      font-size: 2.5rem;
+      opacity: 0.4;
+      position: absolute;
+      right: 1rem; bottom: 0.5rem;
+    }
+    .doc-card .type { font-size: 0.7rem; font-weight: 800; letter-spacing: 0.1em; opacity: 0.85; }
+    .doc-card h3 { font-size: 1rem; margin-top: 0.5rem; line-height: 1.3; }
+    .bureau-block {
+      margin-top: 2rem;
+      display: grid;
+      gap: 0;
+      border: 3px solid var(--ink);
+      grid-template-columns: 1fr;
+    }
+    @media (min-width: 640px) { .bureau-block { grid-template-columns: 140px 1fr; } }
+    .bureau-block .side {
+      background: var(--gold);
+      padding: 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: "Syne", sans-serif;
+      font-size: 3rem;
+      font-weight: 800;
+      color: var(--red);
+    }
+    .bureau-block .content { padding: 1.5rem; background: #fff; }
+    .bureau-block h3 { font-family: "Syne", sans-serif; font-size: 1.35rem; text-transform: uppercase; }
+    footer.site {
+      background: var(--ink);
+      color: var(--gold);
+      padding: 2rem 1.25rem;
+      font-size: 0.85rem;
+      text-align: center;
+    }
+    footer a { color: #fff; }
+  </style>
+</head>
+<body>
+  <a class="back" href="index.html">← Maquettes</a>
+
+  <header class="site">
+    <div class="header-row">
+      <a href="home-creatif.html"><img src="../assets/logo-codep.jpg" alt="CODEP 66" width="180" height="108" /></a>
+      <nav aria-label="Navigation principale">
+        <a href="home-creatif.html" aria-current="page">Accueil</a>
+        <a href="clubs-creatif.html">Clubs</a>
+        <a href="#">Bureau</a>
+        <a href="#">Actus</a>
+        <a href="#">Docs</a>
+        </nav>
+    </div>
+  </header>
+
+  <section class="hero" aria-labelledby="hero-title">
+    <svg class="arrow-path" viewBox="0 0 400 80" preserveAspectRatio="none" aria-hidden="true">
+      <path d="M0,40 Q200,0 400,40" fill="none" stroke="#0891b2" stroke-width="3" stroke-dasharray="8 6"/>
+    </svg>
+    <div class="hero-copy">
+      <span class="tag">Pyrénées-Orientales · 66</span>
+      <h1 id="hero-title">Le comité<span>au service des clubs</span></h1>
+      <p>Formations, compétitions, labels et publications officielles — tout ce dont les archers et leurs responsables ont besoin, au même endroit.</p>
+      <div class="hero-btns">
+        <a class="btn btn-red" href="#">Actualités</a>
+        <a class="btn btn-gold" href="clubs-creatif.html">Annuaire clubs</a>
+      </div>
+    </div>
+    <div class="target-wrap" aria-hidden="true">
+      <svg viewBox="0 0 120 120" role="img" aria-label="Cible stylisée">
+        <circle cx="60" cy="60" r="55" fill="#fff" stroke="#1c1917" stroke-width="2"/>
+        <circle cx="60" cy="60" r="42" fill="#1e3a5f"/>
+        <circle cx="60" cy="60" r="28" fill="#dc2626"/>
+        <circle cx="60" cy="60" r="14" fill="#fbbf24"/>
+        <circle cx="60" cy="60" r="4" fill="#1c1917"/>
+        <line x1="0" y1="60" x2="120" y2="60" stroke="#0891b2" stroke-width="3"/>
+        <polygon points="118,60 108,55 108,65" fill="#0891b2"/>
+      </svg>
+    </div>
+  </section>
+
+  <section class="strip-red" aria-labelledby="actions-h">
+    <h2 id="actions-h">4 leviers pour les clubs</h2>
+    <div class="action-damier">
+      <article>
+        <h3>Formations</h3>
+        <p>Encadrant de club, stages départementaux.</p>
+      </article>
+      <article>
+        <h3><a href="clubs-creatif.html" style="color:inherit">Annuaire clubs</a></h3>
+        <p>Tous les clubs du 66 · <a href="club-creatif.html" style="color:var(--navy);font-weight:800">ex. fiche CODEP</a></p>
+      </article>
+      <article>
+        <h3>TDP & labels</h3>
+        <p>Compétitions départementales, école de tir, excellence.</p>
+      </article>
+      <article>
+        <h3>Permanence</h3>
+        <p>Maison des sports · contact direct.</p>
+      </article>
+    </div>
+  </section>
+
+  <main>
+    <h2 class="section-title">Actualités</h2>
+    <div class="news-scroll">
+      <article>
+        <time datetime="2026-09-15">15 sept. 2026</time>
+        <h3>Formation encadrant — rentrée 2026</h3>
+        <p>19-20 sept. à Perpignan. Places limitées.</p>
+      </article>
+      <article>
+        <time datetime="2026-09-02">2 sept. 2026</time>
+        <h3>TDP : le calendrier est en ligne</h3>
+        <p>Toutes les dates pour vos clubs.</p>
+      </article>
+      <article>
+        <time datetime="2026-07-10">10 juil. 2026</time>
+        <h3>AG 2026 — convocation</h3>
+        <p>Documents préparatoires disponibles.</p>
+      </article>
+    </div>
+
+    <h2 class="section-title">Comptes rendus & officiels</h2>
+    <div class="docs-grid">
+      <article class="doc-card">
+        <span class="type">CR RÉUNION</span>
+        <h3>Bureau — 12 juin 2026</h3>
+        <span class="pdf">PDF</span>
+      </article>
+      <article class="doc-card">
+        <span class="type">OFFICIEL</span>
+        <h3>Convocation AG 2026</h3>
+        <span class="pdf">PDF</span>
+      </article>
+      <article class="doc-card">
+        <span class="type">CR AG</span>
+        <h3>Assemblée générale 2025</h3>
+        <span class="pdf">PDF</span>
+      </article>
+    </div>
+
+    <h2 class="section-title">Bureau</h2>
+    <div class="bureau-block">
+      <div class="side" aria-hidden="true">AB</div>
+      <div class="content">
+        <h3>Annick BELLET</h3>
+        <p><strong>Présidente</strong> — Comité départemental de tir à l’arc des P.O.</p>
+        <p style="margin-top:0.75rem"><a href="#">Voir tous les élus du bureau →</a></p>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site">
+    <p><strong style="color:#fff">CODEP 66</strong> · Maison des sports, rue Duguay Trouin, Perpignan</p>
+    <p>codeptiralarc66@gmail.com · 06 88 07 15 09 · SIRET 453 071 425 00012</p>
+    <p style="margin-top:0.75rem"><a href="index.html">Chartes couleurs & autres maquettes</a></p>
+  </footer>
+</body>
+</html>
