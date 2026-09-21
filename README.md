@@ -4,7 +4,11 @@ Projet site web du Comité départemental de tir à l’arc des Pyrénées-Orien
 
 ## Démo en ligne (GitHub Pages)
 
-Site statique publié depuis le dossier [`docs/`](docs/) : **https://matthieu-bouquet.github.io/codep-66-maquettes/** (après activation Pages).
+Site statique publié depuis le dossier [`docs/`](docs/) :
+
+**https://matthieu-bouquet.github.io/codep-66-maquettes/**
+
+(Déploiement GitHub Pages : branche `main`, dossier `/docs` — peut prendre 1–2 minutes après un push.)
 
 ## État actuel
 
