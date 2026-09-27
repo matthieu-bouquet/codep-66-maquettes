@@ -20,7 +20,7 @@ Lors du scaffold : `npm create astro@latest` (ou équivalent) en visant **Astro 
 ## CMS
 
 - **Sanity** — Studio dédié CODEP (`studio/`)
-- Types prévus (évolution Bompas) : actualités, bureau, documents (CR / officiels), **clubs** (annuaire + fiche sans site externe), paramètres site
+- Types prévus (évolution Bompas) : actualités, bureau, documents (comptes rendus / officiels), **clubs** (annuaire + fiche sans site externe), paramètres site
 
 ## Hébergement & ops
 
