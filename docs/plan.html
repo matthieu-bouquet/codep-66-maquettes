@@ -76,8 +76,18 @@
     .sitemap-sub li::before {
       content: ""; position: absolute; left: 1.15rem; top: 50%; width: 6px; height: 1px; background: var(--border);
     }
-    .sitemap-sub li strong { font-weight: 600; color: var(--blue); display: block; font-size: 0.82rem; margin-bottom: 0.1rem; }
-    .sitemap-sub li span { color: var(--muted); font-size: 0.82rem; }
+    .sitemap-sub li strong { font-weight: 600; color: var(--ink); display: block; font-size: 0.82rem; margin-bottom: 0.15rem; }
+    .sitemap-sub li span.desc { color: var(--muted); font-size: 0.82rem; display: block; }
+    .kind {
+      display: inline-block; font-size: 0.62rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.05em;
+      padding: 0.15rem 0.4rem; border-radius: 4px; margin-left: 0.35rem; vertical-align: middle;
+    }
+    .kind-page { background: #dbeafe; color: #1e40af; }
+    .kind-section { background: #fef3c7; color: #92400e; }
+    .kind-tab { background: #e0e7ff; color: #4338ca; }
+    .kind-list { background: #dcfce7; color: #166534; }
+    .legend { display: flex; flex-wrap: wrap; gap: 0.5rem 1rem; font-size: 0.8rem; margin-bottom: 1rem; color: var(--muted); }
+    .legend span { display: inline-flex; align-items: center; gap: 0.35rem; }
     .sitemap { list-style: none; margin: 0; padding: 0; }
     @media (min-width: 640px) {
       .sitemap-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0; }
@@ -203,66 +213,86 @@
       <p>Objectif : un site lisible pour les <strong>responsables de clubs</strong> et les <strong>archers</strong>, sans dupliquer le site national FFTA.</p>
 
       <h3>Menu principal proposé</h3>
-      <p class="note" style="margin-top:0">Aperçu de la barre de navigation telle qu’elle pourrait apparaître sur le site.</p>
+      <p class="note" style="margin-top:0">
+        Les titres <strong>rouges</strong> (Accueil, Le CODEP…) = entrées du <strong>menu</strong>, chacune = une <strong>page</strong> (<code>/le-codep</code>, <code>/bureau</code>, etc.).
+        Les lignes en dessous précisent le contenu : soit un <strong>bloc sur la même page</strong> (section H2), soit une <strong>autre page</strong>, soit un <strong>onglet / filtre</strong> sur une page liste.
+      </p>
+      <div class="legend" aria-label="Légende">
+        <span><span class="kind kind-page">Page</span> URL dédiée</span>
+        <span><span class="kind kind-section">Section</span> même page (scroll / H2)</span>
+        <span><span class="kind kind-tab">Onglet</span> filtre sur une page liste</span>
+        <span><span class="kind kind-list">Fiche</span> une page par club / par actu</span>
+      </div>
       <div class="nav-preview" aria-hidden="true">
         <span class="primary">Accueil</span>
         <span>Le CODEP</span>
+        <span>Bureau</span>
         <span>Actualités</span>
         <span>Calendrier</span>
         <span>Documents</span>
-        <span>Clubs du 66</span>
+        <span>Clubs</span>
         <span>Contact</span>
       </div>
       <ul class="sitemap sitemap-grid" aria-label="Arborescence du site proposée">
         <li>
-          <div class="sitemap-item sitemap-item--root">Accueil</div>
+          <div class="sitemap-item sitemap-item--root">Accueil <span class="kind kind-page">Page</span></div>
           <ul class="sitemap-sub">
-            <li><strong>Page d’entrée</strong><span>Actus, documents récents, accès annuaire, bureau</span></li>
+            <li><strong>Blocs de la page d’accueil</strong><span class="desc">Aperçu actus, docs, annuaire, bureau — pas de sous-pages</span> <span class="kind kind-section">Sections</span></li>
           </ul>
         </li>
         <li>
-          <div class="sitemap-item sitemap-item--root">Le CODEP</div>
+          <div class="sitemap-item sitemap-item--root">Le CODEP <span class="kind kind-page">Page</span></div>
           <ul class="sitemap-sub">
-            <li><strong>Mission & rôle</strong><span>Rôle départemental, FFTA, CD66</span></li>
-            <li><strong>Bureau & élus</strong><span>Composition, contacts publics</span></li>
-            <li><strong>Permanence</strong><span>Adresse, horaires, rendez-vous</span></li>
+            <li><strong>Mission & rôle</strong><span class="desc">Texte institutionnel, FFTA, CD66</span> <span class="kind kind-section">Section</span></li>
+            <li><strong>Permanence</strong><span class="desc">Maison des sports, horaires, rendez-vous</span> <span class="kind kind-section">Section</span></li>
+            <li><strong>Lien vers le bureau</strong><span class="desc">Renvoi vers la page Bureau (menu)</span> <span class="kind kind-page">Page</span></li>
           </ul>
         </li>
         <li>
-          <div class="sitemap-item sitemap-item--root">Actualités</div>
+          <div class="sitemap-item sitemap-item--root">Bureau <span class="kind kind-page">Page</span></div>
           <ul class="sitemap-sub">
-            <li><strong>Fil d’info</strong><span>Annonces aux clubs, vie du comité</span></li>
+            <li><strong>Élus & rôles</strong><span class="desc">Liste des membres (Sanity), contacts publics</span> <span class="kind kind-section">Section</span></li>
           </ul>
         </li>
         <li>
-          <div class="sitemap-item sitemap-item--root">Calendrier & formations</div>
+          <div class="sitemap-item sitemap-item--root">Actualités <span class="kind kind-page">Page</span></div>
           <ul class="sitemap-sub">
-            <li><strong>TDP & compétitions</strong><span>Dates départementales</span></li>
-            <li><strong>Stages</strong><span>Encadrant de club, perfectionnement</span></li>
+            <li><strong>Liste des articles</strong><span class="desc">Fil chronologique</span> <span class="kind kind-section">Section</span></li>
+            <li><strong>Chaque actualité</strong><span class="desc">Titre, date, texte, pièces jointes</span> <span class="kind kind-list">Fiche</span></li>
           </ul>
         </li>
         <li>
-          <div class="sitemap-item sitemap-item--root">Documents</div>
+          <div class="sitemap-item sitemap-item--root">Calendrier & formations <span class="kind kind-page">Page</span></div>
           <ul class="sitemap-sub">
-            <li><strong>Comptes rendus</strong><span>Réunions, AG</span></li>
-            <li><strong>Officiels</strong><span>Convocations, règlements</span></li>
-            <li><strong>Formulaires</strong><span>Fiches utiles clubs</span></li>
+            <li><strong>TDP & compétitions</strong><span class="desc">Dates, lieux, liens d’inscription</span> <span class="kind kind-section">Section</span></li>
+            <li><strong>Stages</strong><span class="desc">Encadrant, perfectionnement</span> <span class="kind kind-section">Section</span></li>
           </ul>
         </li>
         <li>
-          <div class="sitemap-item sitemap-item--root">Clubs du 66</div>
+          <div class="sitemap-item sitemap-item--root">Documents <span class="kind kind-page">Page</span></div>
           <ul class="sitemap-sub">
-            <li><strong>Annuaire</strong><span>Site du club ou fiche CODEP</span></li>
-            <li><strong>Labels & agréments</strong><span>Info + liens FFTA</span></li>
+            <li><strong>Comptes rendus</strong><span class="desc">PDF réunions, AG</span> <span class="kind kind-tab">Onglet</span></li>
+            <li><strong>Officiels</strong><span class="desc">Convocations, règlements</span> <span class="kind kind-tab">Onglet</span></li>
+            <li><strong>Formulaires</strong><span class="desc">Fiches clubs</span> <span class="kind kind-tab">Onglet</span></li>
+          </ul>
+        </li>
+        <li>
+          <div class="sitemap-item sitemap-item--root">Clubs du 66 <span class="kind kind-page">Page</span></div>
+          <ul class="sitemap-sub">
+            <li><strong>Annuaire</strong><span class="desc">Liste par commune</span> <span class="kind kind-section">Section</span></li>
+            <li><strong>Fiche club</strong><span class="desc">Si pas de site web externe</span> <span class="kind kind-list">Fiche</span></li>
+            <li><strong>Labels & agréments</strong><span class="desc">Texte d’info + liens FFTA</span> <span class="kind kind-section">Section</span></li>
           </ul>
         </li>
         <li class="sitemap-full">
-          <div class="sitemap-item sitemap-item--root">Contact</div>
+          <div class="sitemap-item sitemap-item--root">Contact <span class="kind kind-page">Page</span></div>
           <ul class="sitemap-sub">
-            <li><strong>Coordonnées & formulaire</strong><span>E-mail, téléphone, délai de réponse</span></li>
+            <li><strong>Coordonnées & formulaire</strong><span class="desc">E-mail, tél., message aux clubs</span> <span class="kind kind-section">Section</span></li>
           </ul>
         </li>
       </ul>
+      <p class="note"><strong>Exemple « Le CODEP » :</strong> une seule page <code>/le-codep</code> avec les sections « Mission » et « Permanence » sur la même page.
+        Le <strong>bureau</strong> est une <strong>page à part</strong> (<code>/bureau</code>), déjà prévue dans les maquettes et le menu — pas un sous-menu caché sous Le CODEP.</p>
 
       <h3>Détail par section</h3>
       <div class="content-grid">
@@ -271,8 +301,12 @@
           <p>Mission en une phrase, 2–3 actus, accès rapide documents récents, lien annuaire clubs, encart bureau (présidente).</p>
         </article>
         <article class="content-card">
-          <h4>Le CODEP</h4>
-          <p>Texte institutionnel, partenaires (FFTA, CD66), horaires permanence, adresse Maison des sports, SIRET.</p>
+          <h4>Le CODEP (1 page)</h4>
+          <p>Sections : mission, partenaires, permanence. Le bureau est sur <code>/bureau</code>, pas ici.</p>
+        </article>
+        <article class="content-card">
+          <h4>Bureau (1 page)</h4>
+          <p>Liste des élus Sanity, rôles, contacts publics.</p>
         </article>
         <article class="content-card">
           <h4>Actualités</h4>
