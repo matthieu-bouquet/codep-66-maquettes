@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Plan de développement — CODEP 66</title>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --yellow: #f5c518;
+      --red: #c41e3a;
+      --blue: #1d5fa7;
+      --ink: #1a1a1a;
+      --muted: #5c6370;
+      --bg: #f4f6f8;
+      --card: #fff;
+      --border: #e2e8f0;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: "DM Sans", system-ui, sans-serif; background: var(--bg); color: var(--ink); line-height: 1.55; padding: 1.5rem 1.25rem 4rem; }
+    .wrap { max-width: 920px; margin: 0 auto; }
+    .top { display: flex; flex-wrap: wrap; gap: 1rem; align-items: center; justify-content: space-between; margin-bottom: 1.5rem; }
+    .top a { font-size: 0.9rem; color: var(--blue); font-weight: 600; text-decoration: none; }
+    .top a:hover { color: var(--red); }
+    h1 { font-size: clamp(1.6rem, 4vw, 2.1rem); margin-bottom: 0.35rem; }
+    .lead { color: var(--muted); max-width: 44rem; margin-bottom: 2rem; font-size: 0.98rem; }
+    .pill-row { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 2rem; }
+    .pill { font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; padding: 0.35rem 0.65rem; border-radius: 999px; }
+    .pill-valid { background: #dcfce7; color: #166534; }
+    .pill-stack { background: #dbeafe; color: var(--blue); }
+    nav.toc { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 1rem 1.25rem; margin-bottom: 2rem; font-size: 0.9rem; }
+    nav.toc ul { list-style: none; display: flex; flex-wrap: wrap; gap: 0.5rem 1.25rem; }
+    nav.toc a { color: var(--ink); font-weight: 600; text-decoration: none; }
+    nav.toc a:hover { color: var(--red); }
+    section { margin-bottom: 2.75rem; }
+    h2 { font-size: 1.35rem; margin-bottom: 0.75rem; padding-top: 0.5rem; border-top: 2px solid var(--yellow); }
+    h2:first-of-type { border-top: none; }
+    h3 { font-size: 1.05rem; margin: 1.25rem 0 0.5rem; color: var(--blue); }
+    p, li { font-size: 0.95rem; }
+    ul, ol { margin: 0.5rem 0 0 1.25rem; }
+    li { margin-bottom: 0.35rem; }
+    .note { background: var(--card); border-left: 4px solid var(--blue); padding: 0.85rem 1rem; border-radius: 0 8px 8px 0; font-size: 0.9rem; color: var(--muted); margin: 1rem 0; }
+    .assign { display: inline-block; font-size: 0.68rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em; padding: 0.2rem 0.45rem; border-radius: 6px; white-space: nowrap; }
+    .assign-codep { background: #fef3c7; color: #92400e; }
+    .assign-matthieu { background: #ede9fe; color: #5b21b6; }
+    .assign-both { background: #dbeafe; color: #1e40af; }
+    table.todo { width: 100%; border-collapse: collapse; background: var(--card); border: 1px solid var(--border); border-radius: 12px; overflow: hidden; font-size: 0.88rem; }
+    table.todo th, table.todo td { padding: 0.65rem 0.75rem; text-align: left; border-bottom: 1px solid var(--border); vertical-align: top; }
+    table.todo th { background: #f8fafc; font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--muted); }
+    table.todo tr:last-child td { border-bottom: none; }
+    table.todo input[type="checkbox"] { width: 1.1rem; height: 1.1rem; accent-color: var(--red); cursor: pointer; }
+    table.todo tr.done td.task { text-decoration: line-through; color: var(--muted); }
+    .phase { font-weight: 700; color: var(--red); font-size: 0.8rem; }
+    .ia-tree { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 1.25rem; font-family: ui-monospace, monospace; font-size: 0.82rem; line-height: 1.6; overflow-x: auto; }
+    .content-grid { display: grid; gap: 1rem; }
+    @media (min-width: 640px) { .content-grid { grid-template-columns: 1fr 1fr; } }
+    .content-card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 1.15rem; }
+    .content-card h4 { font-size: 0.95rem; margin-bottom: 0.35rem; }
+    .content-card p { font-size: 0.85rem; color: var(--muted); }
+    footer { margin-top: 2rem; font-size: 0.85rem; color: var(--muted); }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="top">
+      <a href="index.html">← Maquettes & chartes</a>
+      <img src="../assets/logo-codep.jpg" alt="CODEP 66" height="40" width="67" style="height:40px;width:auto" />
+    </div>
+
+    <h1>Plan de développement — site CODEP 66</h1>
+    <p class="lead">
+      Projet validé avec le comité. Cette page sert de feuille de route partagée : tâches, responsabilités (CODEP 66 / Matthieu),
+      et proposition de structure éditoriale à valider ensemble avant le développement Astro 7.
+    </p>
+
+    <div class="pill-row">
+      <span class="pill pill-valid">Maquettes validées</span>
+      <span class="pill pill-stack">Stack : Astro 7 · Sanity · Cloudflare Pages</span>
+    </div>
+
+    <nav class="toc" aria-label="Sommaire">
+      <ul>
+        <li><a href="#phases">Phases</a></li>
+        <li><a href="#todo">Todo list</a></li>
+        <li><a href="#hebergement">Hébergement & comptes</a></li>
+        <li><a href="#missions">Missions du CODEP</a></li>
+        <li><a href="#structure">Structure de contenu</a></li>
+        <li><a href="#sanity">Types Sanity (aperçu)</a></li>
+      </ul>
+    </nav>
+
+    <section id="phases">
+      <h2>Phases du projet</h2>
+      <ol>
+        <li><strong>Cadrage</strong> — design, stack, périmètre (fait).</li>
+        <li><strong>Infra & nom de domaine</strong> — OVH, DNS, choix du compte propriétaire des services.</li>
+        <li><strong>Contenu & structure</strong> — arborescence, textes, collecte annuaire clubs, documents existants.</li>
+        <li><strong>Développement</strong> — repo Astro, Sanity Studio, déploiement staging puis production.</li>
+        <li><strong>Recette & formation</strong> — relecture CODEP, prise en main du back-office, corrections.</li>
+        <li><strong>Mise en ligne & communication</strong> — bascule DNS, annonce aux clubs, maintenance légère.</li>
+      </ol>
+    </section>
+
+    <section id="todo">
+      <h2>Todo list (cocher = suivi local dans votre navigateur)</h2>
+      <p class="note">Les cases cochées restent sur l’appareil utilisé (pas de sync entre plusieurs personnes). Pour un suivi d’équipe, recopier dans un outil partagé si besoin.</p>
+      <table class="todo" id="todo-table">
+        <thead>
+          <tr>
+            <th scope="col" style="width:2.5rem">✓</th>
+            <th scope="col">Phase</th>
+            <th scope="col">Tâche</th>
+            <th scope="col">Responsable</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr data-id="t01"><td><input type="checkbox" aria-label="Marquer fait" /></td><td class="phase">Infra</td><td class="task">Créer / reprendre compte OVH au nom du CODEP (ou association)</td><td><span class="assign assign-codep">CODEP 66</span> <span class="assign assign-matthieu">Matthieu</span></td></tr>
+          <tr data-id="t02"><td><input type="checkbox" /></td><td class="phase">Infra</td><td class="task">Achat et renouvellement du nom de domaine (ex. codeptirarc66.fr ou équivalent)</td><td><span class="assign assign-both">CODEP + Matthieu</span></td></tr>
+          <tr data-id="t03"><td><input type="checkbox" /></td><td class="phase">Infra</td><td class="task">Décider propriété des comptes Sanity, Cloudflare, GitHub, Resend (voir section hébergement)</td><td><span class="assign assign-both">CODEP + Matthieu</span></td></tr>
+          <tr data-id="t04"><td><input type="checkbox" /></td><td class="phase">Infra</td><td class="task">Pointer le domaine vers Cloudflare (DNS)</td><td><span class="assign assign-matthieu">Matthieu</span></td></tr>
+          <tr data-id="t05"><td><input type="checkbox" checked /></td><td class="phase">Cadrage</td><td class="task">Valider une direction visuelle (moderne / territoire / créatif)</td><td><span class="assign assign-codep">CODEP 66</span></td></tr>
+          <tr data-id="t06"><td><input type="checkbox" /></td><td class="phase">Contenu</td><td class="task">Valider l’arborescence et les intitulés de menu avec le bureau</td><td><span class="assign assign-both">CODEP + Matthieu</span></td></tr>
+          <tr data-id="t07"><td><input type="checkbox" /></td><td class="phase">Contenu</td><td class="task">Rédiger « Le comité » : mission, historique, lien FFTA / ligue</td><td><span class="assign assign-codep">CODEP 66</span></td></tr>
+          <tr data-id="t08"><td><input type="checkbox" /></td><td class="phase">Contenu</td><td class="task">Liste bureau + contacts (élus, rôles, e-mail / tél. publics)</td><td><span class="assign assign-codep">CODEP 66</span></td></tr>
+          <tr data-id="t09"><td><input type="checkbox" /></td><td class="phase">Contenu</td><td class="task">Collecter données annuaire clubs (nom, commune, site, contact, horaires, fiche sans site)</td><td><span class="assign assign-codep">CODEP 66</span></td></tr>
+          <tr data-id="t10"><td><input type="checkbox" /></td><td class="phase">Contenu</td><td class="task">Inventorier PDF existants (CR, AG, convocations, règlements, formulaires)</td><td><span class="assign assign-codep">CODEP 66</span></td></tr>
+          <tr data-id="t11"><td><input type="checkbox" /></td><td class="phase">Contenu</td><td class="task">Calendrier TDP / formations à publier (saison en cours)</td><td><span class="assign assign-codep">CODEP 66</span></td></tr>
+          <tr data-id="t12"><td><input type="checkbox" /></td><td class="phase">Contenu</td><td class="task">Mentions légales, politique de confidentialité (RGPD), crédits photos</td><td><span class="assign assign-both">CODEP + Matthieu</span></td></tr>
+          <tr data-id="t13"><td><input type="checkbox" /></td><td class="phase">Dev</td><td class="task">Initialiser repo Astro 7 + Tailwind (fork archi Bompas)</td><td><span class="assign assign-matthieu">Matthieu</span></td></tr>
+          <tr data-id="t14"><td><input type="checkbox" /></td><td class="phase">Dev</td><td class="task">Projet Sanity + schémas (actus, docs, bureau, clubs, paramètres)</td><td><span class="assign assign-matthieu">Matthieu</span></td></tr>
+          <tr data-id="t15"><td><input type="checkbox" /></td><td class="phase">Dev</td><td class="task">Déployer Studio Sanity + site staging Cloudflare Pages</td><td><span class="assign assign-matthieu">Matthieu</span></td></tr>
+          <tr data-id="t16"><td><input type="checkbox" /></td><td class="phase">Dev</td><td class="task">Webhook Sanity → rebuild automatique</td><td><span class="assign assign-matthieu">Matthieu</span></td></tr>
+          <tr data-id="t17"><td><input type="checkbox" /></td><td class="phase">Dev</td><td class="task">Formulaire contact (+ Turnstile anti-spam) si souhaité</td><td><span class="assign assign-matthieu">Matthieu</span></td></tr>
+          <tr data-id="t18"><td><input type="checkbox" /></td><td class="phase">Dev</td><td class="task">Pages annuaire + fiche club (site externe ou vitrine CODEP)</td><td><span class="assign assign-matthieu">Matthieu</span></td></tr>
+          <tr data-id="t19"><td><input type="checkbox" /></td><td class="phase">Recette</td><td class="task">Session formation Sanity (1–2 bénévoles rédacteurs)</td><td><span class="assign assign-both">CODEP + Matthieu</span></td></tr>
+          <tr data-id="t20"><td><input type="checkbox" /></td><td class="phase">Recette</td><td class="task">Relecture contenu et liens par le bureau</td><td><span class="assign assign-codep">CODEP 66</span></td></tr>
+          <tr data-id="t21"><td><input type="checkbox" /></td><td class="phase">Prod</td><td class="task">Mise en production domaine + communication aux clubs</td><td><span class="assign assign-both">CODEP + Matthieu</span></td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section id="hebergement">
+      <h2>Hébergement & comptes — points à trancher</h2>
+      <ul>
+        <li><strong>Domaine OVH</strong> : idéalement au nom du CODEP (facturation association). Matthieu accompagne création / DNS.</li>
+        <li><strong>Cloudflare Pages</strong> : hébergement site (gratuit, performant). Peut rester sur le compte Matthieu au départ avec transfert ultérieur au CODEP, ou compte dédié dès le début — documenter identifiants dans un coffre partagé (bureau).</li>
+        <li><strong>Sanity</strong> : projet CMS (gratuit tier associatif suffisant au départ). Même logique propriétaire : compte Matthieu + ajout d’un admin CODEP, ou compte e-mail <code>codeptiralarc66@gmail.com</code>.</li>
+        <li><strong>GitHub</strong> : code source (repo privé ou orga association). Matthieu développe ; accès lecture possible pour relais technique.</li>
+        <li><strong>Resend</strong> (optionnel) : envoi e-mails formulaire contact — domaine vérifié chez Resend ou Cloudflare Email Routing.</li>
+        <li><strong>Coûts récurrents</strong> : domaine OVH (~10–15 €/an) ; reste gratuit ou très faible à l’échelle d’un CODEP.</li>
+      </ul>
+      <p class="note"><strong>Recommandation</strong> : propriété « morale » au CODEP (domaine + e-mail admin Sanity), mise en place technique par Matthieu, puis second administrateur CODEP formé.</p>
+    </section>
+
+    <section id="missions">
+      <h2>Missions du CODEP (référence pour le site)</h2>
+      <p>D’après l’objet associatif et le rôle départemental FFTA, le comité :</p>
+      <ol>
+        <li><strong>Organise et développe</strong> la pratique du tir à l’arc dans les Pyrénées-Orientales.</li>
+        <li><strong>Coordonne les clubs affiliés</strong> : lien, information, permanence (Maison des sports / CD66).</li>
+        <li><strong>Planifie et communique</strong> calendrier départemental (TDP, championnats, stages).</li>
+        <li><strong>Forme et accompagne</strong> encadrants et responsables de clubs (stages, labels école de tir / excellence).</li>
+        <li><strong>Publie</strong> décisions, comptes rendus et documents officiels à destination des clubs.</li>
+        <li><strong>Représente</strong> le département auprès de la ligue / région / FFTA (info remontée / descendue).</li>
+      </ol>
+    </section>
+
+    <section id="structure">
+      <h2>Proposition de structure de contenu (à discuter)</h2>
+      <p>Objectif : un site lisible pour les <strong>responsables de clubs</strong> et les <strong>archers</strong>, sans dupliquer le site national FFTA.</p>
+
+      <h3>Menu principal proposé</h3>
+      <div class="ia-tree">Accueil
+├── Le CODEP
+│   ├── Mission & rôle départemental
+│   ├── Bureau & élus
+│   └── Contact & permanence
+├── Actualités
+├── Calendrier & formations
+│   ├── TDP & compétitions départementales
+│   └── Stages (encadrant, etc.)
+├── Documents
+│   ├── Comptes rendus (réunions, AG)
+│   ├── Documents officiels & convocations
+│   └── Formulaires / fiches utiles
+├── Clubs du 66
+│   ├── Annuaire (lien site club ou fiche CODEP)
+│   └── Labels & agréments (info + liens FFTA)
+└── Contact</div>
+
+      <h3>Détail par section</h3>
+      <div class="content-grid">
+        <article class="content-card">
+          <h4>Accueil</h4>
+          <p>Mission en une phrase, 2–3 actus, accès rapide documents récents, lien annuaire clubs, encart bureau (présidente).</p>
+        </article>
+        <article class="content-card">
+          <h4>Le CODEP</h4>
+          <p>Texte institutionnel, partenaires (FFTA, CD66), horaires permanence, adresse Maison des sports, SIRET.</p>
+        </article>
+        <article class="content-card">
+          <h4>Actualités</h4>
+          <p>Infos clubs : AG, formations, TDP, labels, vie du comité. Fil chronologique (Sanity).</p>
+        </article>
+        <article class="content-card">
+          <h4>Calendrier & formations</h4>
+          <p>Dates TDP, délais d’inscription, stages encadrant — peut fusionner avec actus au début si peu de contenu.</p>
+        </article>
+        <article class="content-card">
+          <h4>Documents</h4>
+          <p>PDF classés CR / Officiel / Autre. Recherche par année. Même logique que les maquettes.</p>
+        </article>
+        <article class="content-card">
+          <h4>Clubs du 66</h4>
+          <p>Liste par commune ; URL externe si le club a un site ; sinon fiche (horaires, contact, texte court).</p>
+        </article>
+        <article class="content-card">
+          <h4>Contact</h4>
+          <p>E-mail, téléphone, formulaire optionnel, mention délai de réponse.</p>
+        </article>
+        <article class="content-card">
+          <h4>Pied de page</h4>
+          <p>Mentions légales, confidentialité, lien FFTA, © CODEP 66.</p>
+        </article>
+      </div>
+
+      <h3>Questions ouvertes pour la réunion CODEP</h3>
+      <ul>
+        <li>Faut-il une page « Espace clubs » (synthèse actus + docs récents) en plus de l’accueil ?</li>
+        <li>Calendrier dédié ou actus taguées « TDP / Formation » ?</li>
+        <li>Quels documents restent privés (mot de passe) vs publics aux affiliés ?</li>
+        <li>Qui valide les fiches clubs sans site web avant publication ?</li>
+        <li>Facebook / réseaux : lien simple ou intégration fil actu ?</li>
+      </ul>
+    </section>
+
+    <section id="sanity">
+      <h2>Types de contenu Sanity (aperçu technique)</h2>
+      <ul>
+        <li><code>siteSettings</code> — nom, logo, textes accueil, coordonnées, réseaux</li>
+        <li><code>news</code> — actualités</li>
+        <li><code>documentFile</code> — PDF + catégorie (CR, officiel, formulaire)</li>
+        <li><code>boardMember</code> — bureau</li>
+        <li><code>club</code> — annuaire (nom, slug, commune, siteUrl?, fiche riche, contact)</li>
+        <li><code>event</code> (optionnel) — TDP / formations datées</li>
+      </ul>
+    </section>
+
+    <footer>
+      <p><a href="index.html">Retour aux maquettes</a> · Document de travail — septembre 2026</p>
+    </footer>
+  </div>
+
+  <script>
+    (function () {
+      var KEY = "codep66-plan-todo";
+      var saved = {};
+      try { saved = JSON.parse(localStorage.getItem(KEY) || "{}"); } catch (e) {}
+      document.querySelectorAll("#todo-table tbody tr").forEach(function (row) {
+        var id = row.getAttribute("data-id");
+        var cb = row.querySelector('input[type="checkbox"]');
+        if (!cb || !id) return;
+        if (saved[id]) cb.checked = true;
+        row.classList.toggle("done", cb.checked);
+        cb.addEventListener("change", function () {
+          saved[id] = cb.checked;
+          row.classList.toggle("done", cb.checked);
+          localStorage.setItem(KEY, JSON.stringify(saved));
+        });
+      });
+    })();
+  </script>
+</body>
+</html>
