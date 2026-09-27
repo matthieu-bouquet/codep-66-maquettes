@@ -27,6 +27,7 @@
     .pill-row { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 2rem; }
     .pill { font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; padding: 0.35rem 0.65rem; border-radius: 999px; }
     .pill-valid { background: #dcfce7; color: #166534; }
+    .pill-pending { background: #fef3c7; color: #92400e; }
     .pill-stack { background: #dbeafe; color: var(--blue); }
     nav.toc { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 1rem 1.25rem; margin-bottom: 2rem; font-size: 0.9rem; }
     nav.toc ul { list-style: none; display: flex; flex-wrap: wrap; gap: 0.5rem 1.25rem; }
@@ -117,7 +118,8 @@
     </p>
 
     <div class="pill-row">
-      <span class="pill pill-valid">Maquettes validées</span>
+      <span class="pill pill-valid">Projet validé avec le CODEP</span>
+      <span class="pill pill-pending">Direction visuelle : moderne — à confirmer</span>
       <span class="pill pill-stack">Stack : Astro 7 · Sanity · Cloudflare Pages</span>
     </div>
 
@@ -161,7 +163,7 @@
           <tr data-id="t02"><td><input type="checkbox" /></td><td class="phase">Infra</td><td class="task">Achat et renouvellement du nom de domaine (ex. codeptirarc66.fr ou équivalent)</td><td><span class="assign assign-both">CODEP + Matthieu</span></td></tr>
           <tr data-id="t03"><td><input type="checkbox" /></td><td class="phase">Infra</td><td class="task">Décider propriété des comptes Sanity, Cloudflare, GitHub, Resend (voir section hébergement)</td><td><span class="assign assign-both">CODEP + Matthieu</span></td></tr>
           <tr data-id="t04"><td><input type="checkbox" /></td><td class="phase">Infra</td><td class="task">Pointer le domaine vers Cloudflare (DNS)</td><td><span class="assign assign-matthieu">Matthieu</span></td></tr>
-          <tr data-id="t05"><td><input type="checkbox" checked /></td><td class="phase">Cadrage</td><td class="task">Valider une direction visuelle (moderne / territoire / créatif)</td><td><span class="assign assign-codep">CODEP 66</span></td></tr>
+          <tr data-id="t05"><td><input type="checkbox" /></td><td class="phase">Cadrage</td><td class="task">Confirmer la direction visuelle — <strong>moderne</strong> privilégiée (territoire / créatif en référence)</td><td><span class="assign assign-codep">CODEP 66</span></td></tr>
           <tr data-id="t06"><td><input type="checkbox" /></td><td class="phase">Contenu</td><td class="task">Valider l’arborescence et les intitulés de menu avec le bureau</td><td><span class="assign assign-both">CODEP + Matthieu</span></td></tr>
           <tr data-id="t07"><td><input type="checkbox" /></td><td class="phase">Contenu</td><td class="task">Rédiger « Le comité » : mission, historique, lien fédération / ligue</td><td><span class="assign assign-codep">CODEP 66</span></td></tr>
           <tr data-id="t08"><td><input type="checkbox" /></td><td class="phase">Contenu</td><td class="task">Liste bureau + contacts (élus, rôles, e-mail / tél. publics)</td><td><span class="assign assign-codep">CODEP 66</span></td></tr>
