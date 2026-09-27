@@ -51,7 +51,40 @@
     table.todo input[type="checkbox"] { width: 1.1rem; height: 1.1rem; accent-color: var(--red); cursor: pointer; }
     table.todo tr.done td.task { text-decoration: line-through; color: var(--muted); }
     .phase { font-weight: 700; color: var(--red); font-size: 0.8rem; }
-    .ia-tree { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 1.25rem; font-family: ui-monospace, monospace; font-size: 0.82rem; line-height: 1.6; overflow-x: auto; }
+    .nav-preview {
+      display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 1rem;
+      padding: 0.75rem; background: linear-gradient(128deg, var(--blue), #163d6b); border-radius: 12px;
+    }
+    .nav-preview span {
+      font-size: 0.78rem; font-weight: 700; color: #fff; padding: 0.4rem 0.75rem;
+      background: rgba(255,255,255,0.12); border-radius: 999px; border: 1px solid rgba(255,255,255,0.2);
+    }
+    .nav-preview span.primary { background: var(--yellow); color: var(--ink); border-color: transparent; }
+    .sitemap { background: var(--card); border: 1px solid var(--border); border-radius: 12px; overflow: hidden; }
+    .sitemap > li { list-style: none; border-bottom: 1px solid var(--border); }
+    .sitemap > li:last-child { border-bottom: none; }
+    .sitemap-item { padding: 0.85rem 1rem; }
+    .sitemap-item--root { background: #f8fafc; font-weight: 700; font-size: 0.95rem; display: flex; align-items: center; gap: 0.5rem; }
+    .sitemap-item--root::before {
+      content: ""; width: 8px; height: 8px; border-radius: 50%; background: var(--red); flex-shrink: 0;
+    }
+    .sitemap-sub { list-style: none; margin: 0; padding: 0 0 0.5rem 0; background: #fff; }
+    .sitemap-sub li {
+      padding: 0.45rem 1rem 0.45rem 2.25rem; font-size: 0.88rem; color: var(--ink);
+      border-top: 1px solid #f1f5f9; position: relative;
+    }
+    .sitemap-sub li::before {
+      content: ""; position: absolute; left: 1.15rem; top: 50%; width: 6px; height: 1px; background: var(--border);
+    }
+    .sitemap-sub li strong { font-weight: 600; color: var(--blue); display: block; font-size: 0.82rem; margin-bottom: 0.1rem; }
+    .sitemap-sub li span { color: var(--muted); font-size: 0.82rem; }
+    .sitemap { list-style: none; margin: 0; padding: 0; }
+    @media (min-width: 640px) {
+      .sitemap-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0; }
+      .sitemap-grid > li { border-bottom: 1px solid var(--border); }
+      .sitemap-grid > li:nth-child(odd) { border-right: 1px solid var(--border); }
+      .sitemap-grid > li.sitemap-full { grid-column: 1 / -1; border-right: none !important; }
+    }
     .content-grid { display: grid; gap: 1rem; }
     @media (min-width: 640px) { .content-grid { grid-template-columns: 1fr 1fr; } }
     .content-card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 1.15rem; }
@@ -170,23 +203,66 @@
       <p>Objectif : un site lisible pour les <strong>responsables de clubs</strong> et les <strong>archers</strong>, sans dupliquer le site national FFTA.</p>
 
       <h3>Menu principal proposé</h3>
-      <div class="ia-tree">Accueil
-├── Le CODEP
-│   ├── Mission & rôle départemental
-│   ├── Bureau & élus
-│   └── Contact & permanence
-├── Actualités
-├── Calendrier & formations
-│   ├── TDP & compétitions départementales
-│   └── Stages (encadrant, etc.)
-├── Documents
-│   ├── Comptes rendus (réunions, AG)
-│   ├── Documents officiels & convocations
-│   └── Formulaires / fiches utiles
-├── Clubs du 66
-│   ├── Annuaire (lien site club ou fiche CODEP)
-│   └── Labels & agréments (info + liens FFTA)
-└── Contact</div>
+      <p class="note" style="margin-top:0">Aperçu de la barre de navigation telle qu’elle pourrait apparaître sur le site.</p>
+      <div class="nav-preview" aria-hidden="true">
+        <span class="primary">Accueil</span>
+        <span>Le CODEP</span>
+        <span>Actualités</span>
+        <span>Calendrier</span>
+        <span>Documents</span>
+        <span>Clubs du 66</span>
+        <span>Contact</span>
+      </div>
+      <ul class="sitemap sitemap-grid" aria-label="Arborescence du site proposée">
+        <li>
+          <div class="sitemap-item sitemap-item--root">Accueil</div>
+          <ul class="sitemap-sub">
+            <li><strong>Page d’entrée</strong><span>Actus, documents récents, accès annuaire, bureau</span></li>
+          </ul>
+        </li>
+        <li>
+          <div class="sitemap-item sitemap-item--root">Le CODEP</div>
+          <ul class="sitemap-sub">
+            <li><strong>Mission & rôle</strong><span>Rôle départemental, FFTA, CD66</span></li>
+            <li><strong>Bureau & élus</strong><span>Composition, contacts publics</span></li>
+            <li><strong>Permanence</strong><span>Adresse, horaires, rendez-vous</span></li>
+          </ul>
+        </li>
+        <li>
+          <div class="sitemap-item sitemap-item--root">Actualités</div>
+          <ul class="sitemap-sub">
+            <li><strong>Fil d’info</strong><span>Annonces aux clubs, vie du comité</span></li>
+          </ul>
+        </li>
+        <li>
+          <div class="sitemap-item sitemap-item--root">Calendrier & formations</div>
+          <ul class="sitemap-sub">
+            <li><strong>TDP & compétitions</strong><span>Dates départementales</span></li>
+            <li><strong>Stages</strong><span>Encadrant de club, perfectionnement</span></li>
+          </ul>
+        </li>
+        <li>
+          <div class="sitemap-item sitemap-item--root">Documents</div>
+          <ul class="sitemap-sub">
+            <li><strong>Comptes rendus</strong><span>Réunions, AG</span></li>
+            <li><strong>Officiels</strong><span>Convocations, règlements</span></li>
+            <li><strong>Formulaires</strong><span>Fiches utiles clubs</span></li>
+          </ul>
+        </li>
+        <li>
+          <div class="sitemap-item sitemap-item--root">Clubs du 66</div>
+          <ul class="sitemap-sub">
+            <li><strong>Annuaire</strong><span>Site du club ou fiche CODEP</span></li>
+            <li><strong>Labels & agréments</strong><span>Info + liens FFTA</span></li>
+          </ul>
+        </li>
+        <li class="sitemap-full">
+          <div class="sitemap-item sitemap-item--root">Contact</div>
+          <ul class="sitemap-sub">
+            <li><strong>Coordonnées & formulaire</strong><span>E-mail, téléphone, délai de réponse</span></li>
+          </ul>
+        </li>
+      </ul>
 
       <h3>Détail par section</h3>
       <div class="content-grid">
