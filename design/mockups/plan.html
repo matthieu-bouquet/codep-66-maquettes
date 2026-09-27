@@ -125,6 +125,10 @@
     .dom-hint { font-size: 0.78rem; color: var(--muted); margin-top: 0.35rem; }
     .infra-list { list-style: disc; margin: 0.35rem 0 0 1.1rem; font-size: 0.88rem; color: var(--muted); }
     .infra-list li { margin-bottom: 0.25rem; }
+    .dom-ref { margin-top: 1rem; }
+    .dom-ref h3 { font-size: 0.88rem; margin: 0 0 0.4rem; color: var(--muted); font-weight: 600; }
+    table.domains a { color: var(--blue); font-weight: 600; text-decoration: none; }
+    table.domains a:hover { color: var(--red); text-decoration: underline; }
   </style>
 </head>
 <body>
@@ -152,20 +156,43 @@
       <ol>
         <li>
           <strong>Nom de domaine</strong> <span class="assign assign-both">CODEP + Matthieu</span>
-          <p class="dom-hint">Choisir et enregistrer chez OVH (ou transférer un domaine existant). Vérifier la dispo au moment de l’achat — contrôle WHOIS indicatif du 21 sept. 2026.</p>
-          <table class="domains" aria-label="Propositions de noms de domaine">
-            <thead>
-              <tr><th>Proposition</th><th>Intérêt</th><th>WHOIS (.fr)</th></tr>
-            </thead>
-            <tbody>
-              <tr><td><code>codep66.fr</code></td><td>Court, mémorable</td><td class="dom-taken">Pris</td></tr>
-              <tr><td><code>codep-66.fr</code></td><td>Variante avec tiret</td><td class="dom-free">Probablement libre</td></tr>
-              <tr><td><code>tirarc66.fr</code></td><td>Discipline + département</td><td class="dom-taken">Pris</td></tr>
-              <tr><td><code>tirarc-po.fr</code></td><td>66 / PO explicite (court)</td><td class="dom-free">Probablement libre</td></tr>
-              <tr><td><code>codep-tir-arc-po.fr</code></td><td>Très explicite (SEO)</td><td class="dom-free">Probablement libre</td></tr>
-              <tr><td><code>comite-tir-arc-66.fr</code></td><td>Institutionnel, clair</td><td class="dom-free">Probablement libre</td></tr>
-            </tbody>
-          </table>
+          <p class="dom-hint">Choisir et enregistrer chez OVH (ou transférer un domaine existant). S’inspirer des autres comités départementaux (souvent <code>cd…arc</code>, <code>cdta…</code> ou nom long « comité départemental »). Vérifier la dispo au moment de l’achat — WHOIS indicatif du 21 sept. 2026.</p>
+
+          <div class="dom-ref">
+            <h3>Exemples chez d’autres CD (référence)</h3>
+            <table class="domains" aria-label="Noms de domaine d'autres comités départementaux">
+              <thead>
+                <tr><th>Département</th><th>Domaine</th><th>Forme</th></tr>
+              </thead>
+              <tbody>
+                <tr><td>31 — Haute-Garonne</td><td><a href="https://cd31arc.fr/" rel="noopener">cd31arc.fr</a></td><td><code>cd</code> + n° + <code>arc</code></td></tr>
+                <tr><td>11 — Aude</td><td><a href="https://audetiralarc.com/" rel="noopener">audetiralarc.com</a></td><td>nom du département + discipline (.com)</td></tr>
+                <tr><td>30 — Gard</td><td><a href="http://www.cdta30.fr/" rel="noopener">cdta30.fr</a></td><td><code>cdta</code> + n° (comité dép. tir à l’arc)</td></tr>
+                <tr><td>46 — Lot</td><td><a href="http://www.comite-departemental-archers-lot-46.fr/" rel="noopener">comite-departemental-archers-lot-46.fr</a></td><td>libellé complet + département</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="dom-ref">
+            <h3>Pistes pour le 66 (Pyrénées-Orientales)</h3>
+            <table class="domains" aria-label="Propositions de noms de domaine">
+              <thead>
+                <tr><th>Proposition</th><th>Intérêt</th><th>WHOIS (.fr)</th></tr>
+              </thead>
+              <tbody>
+                <tr><td><code>cdta66.fr</code></td><td>Comme le Gard (<code>cdta30.fr</code>)</td><td class="dom-taken">Pris</td></tr>
+                <tr><td><code>cd66arc.fr</code></td><td>Comme la Haute-Garonne (<code>cd31arc.fr</code>)</td><td class="dom-taken">Pris</td></tr>
+                <tr><td><code>codep66.fr</code></td><td>Sigle CODEP + 66</td><td class="dom-taken">Pris</td></tr>
+                <tr><td><code>codep-66.fr</code></td><td>Variante avec tiret</td><td class="dom-free">Probablement libre</td></tr>
+                <tr><td><code>tirarc66.fr</code></td><td>Discipline + département</td><td class="dom-taken">Pris</td></tr>
+                <tr><td><code>tirarc-po.fr</code></td><td>66 / PO explicite (court)</td><td class="dom-free">Probablement libre</td></tr>
+                <tr><td><code>comite-tir-arc-66.fr</code></td><td>Proche du Lot (plus court)</td><td class="dom-free">Probablement libre</td></tr>
+                <tr><td><code>comite-departemental-tir-arc-66.fr</code></td><td>Forme longue institutionnelle</td><td class="dom-taken">Pris</td></tr>
+                <tr><td><code>poretiralarc.fr</code></td><td>Comme l’Aude (<code>audetiralarc</code>)</td><td class="dom-free">Probablement libre</td></tr>
+              </tbody>
+            </table>
+            <p class="dom-hint">Si <code>cdta66.fr</code> ou <code>cd66arc.fr</code> sont déjà enregistrés par le CODEP ou un tiers, vérifier le titulaire WHOIS / OVH avant d’en acheter un autre — reprise ou renouvellement possible.</p>
+          </div>
         </li>
         <li>
           <strong>Comptes infra</strong> <span class="assign assign-matthieu">Matthieu</span> → transfert admin <span class="assign assign-codep">CODEP 66</span>
