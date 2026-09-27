@@ -102,6 +102,29 @@
     .content-card h4 { font-size: 0.95rem; margin-bottom: 0.35rem; }
     .content-card p { font-size: 0.85rem; color: var(--muted); }
     footer { margin-top: 2rem; font-size: 0.85rem; color: var(--muted); }
+    .next-steps {
+      background: linear-gradient(135deg, #fff 0%, #fffbeb 100%);
+      border: 2px solid var(--yellow);
+      border-radius: 14px;
+      padding: 1.25rem 1.35rem;
+      margin-bottom: 2rem;
+      box-shadow: 0 4px 20px rgba(245, 197, 24, 0.15);
+    }
+    .next-steps h2 { border-top: none; margin-bottom: 0.5rem; font-size: 1.2rem; padding-top: 0; }
+    .next-steps > p { font-size: 0.9rem; color: var(--muted); margin-bottom: 1rem; }
+    .next-steps ol { margin: 0 0 0 1.1rem; padding: 0; }
+    .next-steps > ol > li { margin-bottom: 1rem; font-size: 0.95rem; }
+    .next-steps > ol > li:last-child { margin-bottom: 0; }
+    .next-steps li strong { color: var(--ink); }
+    table.domains { width: 100%; border-collapse: collapse; margin: 0.5rem 0 0; font-size: 0.82rem; background: var(--card); border: 1px solid var(--border); border-radius: 8px; overflow: hidden; }
+    table.domains th, table.domains td { padding: 0.45rem 0.6rem; text-align: left; border-bottom: 1px solid var(--border); }
+    table.domains th { background: #f8fafc; font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); }
+    table.domains tr:last-child td { border-bottom: none; }
+    .dom-taken { color: #991b1b; font-weight: 600; }
+    .dom-free { color: #166534; font-weight: 600; }
+    .dom-hint { font-size: 0.78rem; color: var(--muted); margin-top: 0.35rem; }
+    .infra-list { list-style: disc; margin: 0.35rem 0 0 1.1rem; font-size: 0.88rem; color: var(--muted); }
+    .infra-list li { margin-bottom: 0.25rem; }
   </style>
 </head>
 <body>
@@ -123,8 +146,47 @@
       <span class="pill pill-stack">Stack : Astro 7 · Sanity · Cloudflare Pages</span>
     </div>
 
+    <section class="next-steps" id="prochaines-etapes" aria-labelledby="next-steps-title">
+      <h2 id="next-steps-title">Prochaines étapes</h2>
+      <p>Focus immédiat — la todo list ci-dessous reste la vue détaillée sur tout le projet.</p>
+      <ol>
+        <li>
+          <strong>Nom de domaine</strong> <span class="assign assign-both">CODEP + Matthieu</span>
+          <p class="dom-hint">Choisir et enregistrer chez OVH (ou transférer un domaine existant). Vérifier la dispo au moment de l’achat — contrôle WHOIS indicatif du 21 sept. 2026.</p>
+          <table class="domains" aria-label="Propositions de noms de domaine">
+            <thead>
+              <tr><th>Proposition</th><th>Intérêt</th><th>WHOIS (.fr)</th></tr>
+            </thead>
+            <tbody>
+              <tr><td><code>codep66.fr</code></td><td>Court, mémorable</td><td class="dom-taken">Pris</td></tr>
+              <tr><td><code>codep-66.fr</code></td><td>Variante avec tiret</td><td class="dom-free">Probablement libre</td></tr>
+              <tr><td><code>tirarc66.fr</code></td><td>Discipline + département</td><td class="dom-taken">Pris</td></tr>
+              <tr><td><code>tirarc-po.fr</code></td><td>66 / PO explicite (court)</td><td class="dom-free">Probablement libre</td></tr>
+              <tr><td><code>codep-tir-arc-po.fr</code></td><td>Très explicite (SEO)</td><td class="dom-free">Probablement libre</td></tr>
+              <tr><td><code>comite-tir-arc-66.fr</code></td><td>Institutionnel, clair</td><td class="dom-free">Probablement libre</td></tr>
+            </tbody>
+          </table>
+        </li>
+        <li>
+          <strong>Comptes infra</strong> <span class="assign assign-matthieu">Matthieu</span> → transfert admin <span class="assign assign-codep">CODEP 66</span>
+          <p class="dom-hint">Décision : Matthieu ouvre et configure au départ ; le CODEP récupère les droits admin ensuite (identifiants dans un coffre partagé bureau).</p>
+          <ul class="infra-list">
+            <li><strong>Sanity</strong> — inviter un admin CODEP sur le projet ; facturation / propriété via l’e-mail admin retenu.</li>
+            <li><strong>Cloudflare</strong> — ajouter un membre avec rôle approprié, ou basculer le compte / zone DNS vers un compte CODEP.</li>
+            <li><strong>GitHub</strong> — repo sous orga ou compte Matthieu, puis transfert vers une orga CODEP ou ajout de co-admins.</li>
+            <li><strong>Resend</strong> — pas de « transfert de compte » en un clic : inviter le CODEP en <strong>Admin</strong> sur l’équipe (Team Settings). L’admin peut gérer domaines, clés API, facturation et membres ; le créateur peut ensuite quitter l’équipe si un autre admin reste. Domaine d’envoi : une seule équipe Resend à la fois — à lier au domaine OVH choisi.</li>
+          </ul>
+        </li>
+        <li>
+          <strong>Valider l’arborescence du contenu</strong> <span class="assign assign-codep">CODEP 66</span>
+          <p class="dom-hint">Relecture du menu, des pages et des intitulés (section <a href="#structure">Structure de contenu</a>) avec le bureau avant de lancer le développement Astro.</p>
+        </li>
+      </ol>
+    </section>
+
     <nav class="toc" aria-label="Sommaire">
       <ul>
+        <li><a href="#prochaines-etapes">Prochaines étapes</a></li>
         <li><a href="#phases">Phases</a></li>
         <li><a href="#todo">Todo list</a></li>
         <li><a href="#hebergement">Hébergement & comptes</a></li>
@@ -148,7 +210,7 @@
 
     <section id="todo">
       <h2>Todo list (cocher = suivi local dans votre navigateur)</h2>
-      <p class="note">Les cases cochées restent sur l’appareil utilisé (pas de sync entre plusieurs personnes). Pour un suivi d’équipe, recopier dans un outil partagé si besoin.</p>
+      <p class="note">Vue globale et détaillée de tout le projet. Les cases cochées restent sur l’appareil utilisé (pas de sync entre plusieurs personnes). Pour le focus du moment, voir <a href="#prochaines-etapes">Prochaines étapes</a>.</p>
       <table class="todo" id="todo-table">
         <thead>
           <tr>
@@ -185,13 +247,13 @@
     </section>
 
     <section id="hebergement">
-      <h2>Hébergement & comptes — points à trancher</h2>
+      <h2>Hébergement & comptes</h2>
       <ul>
-        <li><strong>Domaine OVH</strong> : idéalement au nom du CODEP (facturation association). Matthieu accompagne création / DNS.</li>
-        <li><strong>Cloudflare Pages</strong> : hébergement site (gratuit, performant). Peut rester sur le compte Matthieu au départ avec transfert ultérieur au CODEP, ou compte dédié dès le début — documenter identifiants dans un coffre partagé (bureau).</li>
-        <li><strong>Sanity</strong> : projet CMS (gratuit tier associatif suffisant au départ). Même logique propriétaire : compte Matthieu + ajout d’un admin CODEP, ou compte e-mail <code>codeptiralarc66@gmail.com</code>.</li>
-        <li><strong>GitHub</strong> : code source (repo privé ou orga association). Matthieu développe ; accès lecture possible pour relais technique.</li>
-        <li><strong>Resend</strong> (optionnel) : envoi e-mails formulaire contact — domaine vérifié chez Resend ou Cloudflare Email Routing.</li>
+        <li><strong>Domaine OVH</strong> : idéalement au nom du CODEP (facturation association). Matthieu accompagne création / DNS — voir propositions dans <a href="#prochaines-etapes">Prochaines étapes</a>.</li>
+        <li><strong>Cloudflare Pages</strong> : hébergement site (gratuit, performant). Compte Matthieu au départ, puis ajout d’un admin CODEP ou migration de compte — identifiants dans un coffre partagé (bureau).</li>
+        <li><strong>Sanity</strong> : projet CMS (gratuit tier associatif suffisant au départ). Compte Matthieu + second admin CODEP invité sur le projet.</li>
+        <li><strong>GitHub</strong> : code source (repo privé ou orga association). Matthieu développe ; transfert orga ou co-admins CODEP ensuite.</li>
+        <li><strong>Resend</strong> (optionnel) : envoi e-mails formulaire contact — compte Matthieu, invitation admin CODEP sur l’équipe Resend (voir encart prochaines étapes).</li>
         <li><strong>Coûts récurrents</strong> : domaine OVH (~10–15 €/an) ; reste gratuit ou très faible à l’échelle d’un CODEP.</li>
       </ul>
       <p class="note"><strong>Recommandation</strong> : propriété « morale » au CODEP (domaine + e-mail admin Sanity), mise en place technique par Matthieu, puis second administrateur CODEP formé.</p>
