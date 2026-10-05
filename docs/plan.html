@@ -116,19 +116,9 @@
     .next-steps > ol > li { margin-bottom: 1rem; font-size: 0.95rem; }
     .next-steps > ol > li:last-child { margin-bottom: 0; }
     .next-steps li strong { color: var(--ink); }
-    table.domains { width: 100%; border-collapse: collapse; margin: 0.5rem 0 0; font-size: 0.82rem; background: var(--card); border: 1px solid var(--border); border-radius: 8px; overflow: hidden; }
-    table.domains th, table.domains td { padding: 0.45rem 0.6rem; text-align: left; border-bottom: 1px solid var(--border); }
-    table.domains th { background: #f8fafc; font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); }
-    table.domains tr:last-child td { border-bottom: none; }
-    .dom-taken { color: #991b1b; font-weight: 600; }
-    .dom-free { color: #166534; font-weight: 600; }
     .dom-hint { font-size: 0.78rem; color: var(--muted); margin-top: 0.35rem; }
     .infra-list { list-style: disc; margin: 0.35rem 0 0 1.1rem; font-size: 0.88rem; color: var(--muted); }
     .infra-list li { margin-bottom: 0.25rem; }
-    .dom-ref { margin-top: 1rem; }
-    .dom-ref h3 { font-size: 0.88rem; margin: 0 0 0.4rem; color: var(--muted); font-weight: 600; }
-    table.domains a { color: var(--blue); font-weight: 600; text-decoration: none; }
-    table.domains a:hover { color: var(--red); text-decoration: underline; }
   </style>
 </head>
 <body>
@@ -152,62 +142,25 @@
 
     <section class="next-steps" id="prochaines-etapes" aria-labelledby="next-steps-title">
       <h2 id="next-steps-title">Prochaines étapes</h2>
-      <p>Focus immédiat — la todo list ci-dessous reste la vue détaillée sur tout le projet.</p>
+      <p>Déjà en place : domaine <code>codep-tirarc66.fr</code>, dépôt <a href="https://github.com/matthieu-bouquet/codep-tirarc66">codep-tirarc66</a>, espace Cloudflare. La todo list ci-dessous reste la vue détaillée.</p>
       <ol>
         <li>
-          <strong>Nom de domaine</strong> <span class="assign assign-both">CODEP + Matthieu</span>
-          <p class="dom-hint">Choisir et enregistrer chez OVH (ou transférer un domaine existant). S’inspirer des autres comités départementaux (souvent <code>cd…arc</code>, <code>cdta…</code> ou nom long « comité départemental »). Vérifier la dispo au moment de l’achat — WHOIS indicatif du 21 sept. 2026.</p>
-
-          <div class="dom-ref">
-            <h3>Exemples chez d’autres CD (référence)</h3>
-            <table class="domains" aria-label="Noms de domaine d'autres comités départementaux">
-              <thead>
-                <tr><th>Département</th><th>Domaine</th><th>Forme</th></tr>
-              </thead>
-              <tbody>
-                <tr><td>31 — Haute-Garonne</td><td><a href="https://cd31arc.fr/" rel="noopener">cd31arc.fr</a></td><td><code>cd</code> + n° + <code>arc</code></td></tr>
-                <tr><td>11 — Aude</td><td><a href="https://audetiralarc.com/" rel="noopener">audetiralarc.com</a></td><td>nom du département + discipline (.com)</td></tr>
-                <tr><td>30 — Gard</td><td><a href="http://www.cdta30.fr/" rel="noopener">cdta30.fr</a></td><td><code>cdta</code> + n° (comité dép. tir à l’arc)</td></tr>
-                <tr><td>46 — Lot</td><td><a href="http://www.comite-departemental-archers-lot-46.fr/" rel="noopener">comite-departemental-archers-lot-46.fr</a></td><td>libellé complet + département</td></tr>
-              </tbody>
-            </table>
-          </div>
-
-          <div class="dom-ref">
-            <h3>Pistes pour le 66 (Pyrénées-Orientales)</h3>
-            <table class="domains" aria-label="Propositions de noms de domaine">
-              <thead>
-                <tr><th>Proposition</th><th>Intérêt</th><th>WHOIS (.fr)</th></tr>
-              </thead>
-              <tbody>
-                <tr><td><code>cdta66.fr</code></td><td>Comme le Gard (<code>cdta30.fr</code>)</td><td class="dom-taken">Pris</td></tr>
-                <tr><td><code>cd66arc.fr</code></td><td>Comme la Haute-Garonne (<code>cd31arc.fr</code>)</td><td class="dom-taken">Pris</td></tr>
-                <tr><td><code>codep66.fr</code></td><td>Sigle CODEP + 66</td><td class="dom-taken">Pris</td></tr>
-                <tr><td><code>codep-tirarc66.fr</code></td><td>CODEP + discipline + 66 (lisible, proche des usages CD)</td><td class="dom-free">Probablement libre</td></tr>
-                <tr><td><code>codep-66.fr</code></td><td>Variante avec tiret</td><td class="dom-free">Probablement libre</td></tr>
-                <tr><td><code>tirarc66.fr</code></td><td>Discipline + département</td><td class="dom-taken">Pris</td></tr>
-                <tr><td><code>tirarc-po.fr</code></td><td>66 / PO explicite (court)</td><td class="dom-free">Probablement libre</td></tr>
-                <tr><td><code>comite-tir-arc-66.fr</code></td><td>Proche du Lot (plus court)</td><td class="dom-free">Probablement libre</td></tr>
-                <tr><td><code>comite-departemental-tir-arc-66.fr</code></td><td>Forme longue institutionnelle</td><td class="dom-taken">Pris</td></tr>
-                <tr><td><code>poretiralarc.fr</code></td><td>Comme l’Aude (<code>audetiralarc</code>)</td><td class="dom-free">Probablement libre</td></tr>
-              </tbody>
-            </table>
-            <p class="dom-hint">Si <code>cdta66.fr</code> ou <code>cd66arc.fr</code> sont déjà enregistrés par le CODEP ou un tiers, vérifier le titulaire WHOIS / OVH avant d’en acheter un autre — reprise ou renouvellement possible.</p>
-          </div>
+          <strong>Pointer les noms de domaine vers Cloudflare</strong> <span class="assign assign-matthieu">Matthieu</span>
+          <p class="dom-hint">Depuis OVH, faire pointer l’apex et <code>www</code> de <code>codep-tirarc66.fr</code> vers Cloudflare.</p>
         </li>
         <li>
-          <strong>Comptes infra</strong> <span class="assign assign-matthieu">Matthieu</span> → transfert admin <span class="assign assign-codep">CODEP 66</span>
-          <p class="dom-hint">Décision : Matthieu ouvre et configure au départ ; le CODEP récupère les droits admin ensuite (identifiants dans un coffre partagé bureau).</p>
+          <strong>Ouvrir les comptes infra</strong> <span class="assign assign-matthieu">Matthieu</span>
+          <p class="dom-hint">Les ouvrir et les configurer maintenant. Le transfert d’admin vers le CODEP se fera plus tard.</p>
           <ul class="infra-list">
-            <li><strong>Sanity</strong> — inviter un admin CODEP sur le projet ; facturation / propriété via l’e-mail admin retenu.</li>
-            <li><strong>Cloudflare</strong> — ajouter un membre avec rôle approprié, ou basculer le compte / zone DNS vers un compte CODEP.</li>
-            <li><strong>GitHub</strong> — repo sous orga ou compte Matthieu, puis transfert vers une orga CODEP ou ajout de co-admins.</li>
-            <li><strong>Resend</strong> — pas de « transfert de compte » en un clic : inviter le CODEP en <strong>Admin</strong> sur l’équipe (Team Settings). L’admin peut gérer domaines, clés API, facturation et membres ; le créateur peut ensuite quitter l’équipe si un autre admin reste. Domaine d’envoi : une seule équipe Resend à la fois — à lier au domaine OVH choisi.</li>
+            <li><strong>Sanity</strong> — à ouvrir (projet CMS).</li>
+            <li><strong>Resend</strong> — à ouvrir (envoi du formulaire contact), domaine d’envoi <code>codep-tirarc66.fr</code>.</li>
+            <li><strong>Cloudflare</strong> — ouvert. Reste le pointage DNS.</li>
+            <li><strong>GitHub</strong> — ouvert : <a href="https://github.com/matthieu-bouquet/codep-tirarc66">codep-tirarc66</a>.</li>
           </ul>
         </li>
         <li>
           <strong>Valider l’arborescence du contenu</strong> <span class="assign assign-codep">CODEP 66</span>
-          <p class="dom-hint">Relecture du menu, des pages et des intitulés (section <a href="#structure">Structure de contenu</a>) avec le bureau avant de lancer le développement Astro.</p>
+          <p class="dom-hint">Relecture du menu, des pages et des intitulés (section <a href="#structure">Structure de contenu</a>) avec le bureau.</p>
         </li>
       </ol>
     </section>
@@ -228,7 +181,7 @@
       <h2>Phases du projet</h2>
       <ol>
         <li><strong>Cadrage</strong> — design, stack, périmètre (fait).</li>
-        <li><strong>Infra & nom de domaine</strong> — OVH, DNS, choix du compte propriétaire des services.</li>
+        <li><strong>Infra</strong> — domaine <code>codep-tirarc66.fr</code> retenu, dépôt et Cloudflare ouverts ; reste le pointage DNS et l’ouverture des autres comptes. Transfert admin plus tard.</li>
         <li><strong>Contenu & structure</strong> — arborescence, textes, collecte annuaire clubs, documents existants.</li>
         <li><strong>Développement</strong> — repo Astro, Sanity Studio, déploiement staging puis production.</li>
         <li><strong>Recette & formation</strong> — relecture CODEP, prise en main du back-office, corrections.</li>
@@ -250,9 +203,11 @@
         </thead>
         <tbody>
           <tr data-id="t01"><td><input type="checkbox" aria-label="Marquer fait" /></td><td class="phase">Infra</td><td class="task">Créer / reprendre compte OVH au nom du CODEP (ou association)</td><td><span class="assign assign-codep">CODEP 66</span> <span class="assign assign-matthieu">Matthieu</span></td></tr>
-          <tr data-id="t02"><td><input type="checkbox" /></td><td class="phase">Infra</td><td class="task">Achat et renouvellement du nom de domaine (ex. <code>codep-tirarc66.fr</code> ou équivalent)</td><td><span class="assign assign-both">CODEP + Matthieu</span></td></tr>
-          <tr data-id="t03"><td><input type="checkbox" /></td><td class="phase">Infra</td><td class="task">Décider propriété des comptes Sanity, Cloudflare, GitHub, Resend (voir section hébergement)</td><td><span class="assign assign-both">CODEP + Matthieu</span></td></tr>
-          <tr data-id="t04"><td><input type="checkbox" /></td><td class="phase">Infra</td><td class="task">Pointer le domaine vers Cloudflare (DNS)</td><td><span class="assign assign-matthieu">Matthieu</span></td></tr>
+          <tr data-id="t02" class="done"><td><input type="checkbox" checked /></td><td class="phase">Infra</td><td class="task">Choisir, acheter et renouveler le nom de domaine — <strong>fait</strong> : <code>codep-tirarc66.fr</code></td><td><span class="assign assign-both">CODEP + Matthieu</span></td></tr>
+          <tr data-id="t03"><td><input type="checkbox" /></td><td class="phase">Infra</td><td class="task">Ouvrir les comptes Sanity et Resend (Cloudflare et GitHub déjà ouverts)</td><td><span class="assign assign-matthieu">Matthieu</span></td></tr>
+          <tr data-id="t26"><td><input type="checkbox" /></td><td class="phase">Infra</td><td class="task">Transférer l’admin des comptes (Sanity, Cloudflare, GitHub, Resend) vers le CODEP — plus tard</td><td><span class="assign assign-both">CODEP + Matthieu</span></td></tr>
+          <tr data-id="t25" class="done"><td><input type="checkbox" checked /></td><td class="phase">Infra</td><td class="task">Initialiser l’espace Cloudflare — <strong>fait</strong></td><td><span class="assign assign-matthieu">Matthieu</span></td></tr>
+          <tr data-id="t04"><td><input type="checkbox" /></td><td class="phase">Infra</td><td class="task">Pointer les noms de domaine vers Cloudflare (DNS) — <strong>reste à faire</strong></td><td><span class="assign assign-matthieu">Matthieu</span></td></tr>
           <tr data-id="t05"><td><input type="checkbox" /></td><td class="phase">Cadrage</td><td class="task">Confirmer la direction visuelle — <strong>moderne</strong> privilégiée (territoire / créatif en référence)</td><td><span class="assign assign-codep">CODEP 66</span></td></tr>
           <tr data-id="t06"><td><input type="checkbox" /></td><td class="phase">Contenu</td><td class="task">Valider l’arborescence et les intitulés de menu avec le bureau</td><td><span class="assign assign-both">CODEP + Matthieu</span></td></tr>
           <tr data-id="t07"><td><input type="checkbox" /></td><td class="phase">Contenu</td><td class="task">Rédiger « Le comité » : mission, historique, lien fédération / ligue</td><td><span class="assign assign-codep">CODEP 66</span></td></tr>
@@ -261,7 +216,7 @@
           <tr data-id="t10"><td><input type="checkbox" /></td><td class="phase">Contenu</td><td class="task">Inventorier PDF existants (comptes rendus, assemblées générales, convocations, règlements, formulaires)</td><td><span class="assign assign-codep">CODEP 66</span></td></tr>
           <tr data-id="t11"><td><input type="checkbox" /></td><td class="phase">Contenu</td><td class="task">Calendrier des compétitions départementales / formations à publier (saison en cours)</td><td><span class="assign assign-codep">CODEP 66</span></td></tr>
           <tr data-id="t12"><td><input type="checkbox" /></td><td class="phase">Contenu</td><td class="task">Mentions légales, politique de confidentialité (RGPD), crédits photos</td><td><span class="assign assign-both">CODEP + Matthieu</span></td></tr>
-          <tr data-id="t13"><td><input type="checkbox" /></td><td class="phase">Dev</td><td class="task">Initialiser repo Astro 7 + Tailwind (fork archi Bompas)</td><td><span class="assign assign-matthieu">Matthieu</span></td></tr>
+          <tr data-id="t13" class="done"><td><input type="checkbox" checked /></td><td class="phase">Dev</td><td class="task">Initialiser repo Astro 7 + Tailwind — <a href="https://github.com/matthieu-bouquet/codep-tirarc66">codep-tirarc66</a> (page statique v0)</td><td><span class="assign assign-matthieu">Matthieu</span></td></tr>
           <tr data-id="t14"><td><input type="checkbox" /></td><td class="phase">Dev</td><td class="task">Projet Sanity + schémas (actus, docs, bureau, clubs, paramètres)</td><td><span class="assign assign-matthieu">Matthieu</span></td></tr>
           <tr data-id="t15"><td><input type="checkbox" /></td><td class="phase">Dev</td><td class="task">Déployer Studio Sanity + site staging Cloudflare Pages</td><td><span class="assign assign-matthieu">Matthieu</span></td></tr>
           <tr data-id="t16"><td><input type="checkbox" /></td><td class="phase">Dev</td><td class="task">Webhook Sanity → rebuild automatique</td><td><span class="assign assign-matthieu">Matthieu</span></td></tr>
@@ -270,6 +225,9 @@
           <tr data-id="t19"><td><input type="checkbox" /></td><td class="phase">Recette</td><td class="task">Session formation Sanity (1–2 bénévoles rédacteurs)</td><td><span class="assign assign-both">CODEP + Matthieu</span></td></tr>
           <tr data-id="t20"><td><input type="checkbox" /></td><td class="phase">Recette</td><td class="task">Relecture contenu et liens par le bureau</td><td><span class="assign assign-codep">CODEP 66</span></td></tr>
           <tr data-id="t21"><td><input type="checkbox" /></td><td class="phase">Prod</td><td class="task">Mise en production domaine + communication aux clubs</td><td><span class="assign assign-both">CODEP + Matthieu</span></td></tr>
+          <tr data-id="t22"><td><input type="checkbox" /></td><td class="phase">Contenu</td><td class="task">Récupérer le logo CODEP en <strong>meilleure définition</strong> (fichier source vectoriel ou PNG/JPG haute résolution pour le site)</td><td><span class="assign assign-both">CODEP + Matthieu</span></td></tr>
+          <tr data-id="t23"><td><input type="checkbox" /></td><td class="phase">Contenu</td><td class="task">Valider l’encart <strong>permanence</strong> (lieu, horaires affichés sur la page d’accueil provisoire)</td><td><span class="assign assign-codep">CODEP 66</span></td></tr>
+          <tr data-id="t24"><td><input type="checkbox" /></td><td class="phase">Contenu</td><td class="task">Valider l’<strong>adresse e-mail</strong> de contact publique (<code>codeptiralarc66@gmail.com</code> ou autre)</td><td><span class="assign assign-codep">CODEP 66</span></td></tr>
         </tbody>
       </table>
     </section>
@@ -277,14 +235,14 @@
     <section id="hebergement">
       <h2>Hébergement & comptes</h2>
       <ul>
-        <li><strong>Domaine OVH</strong> : idéalement au nom du CODEP (facturation association). Matthieu accompagne création / DNS — voir propositions dans <a href="#prochaines-etapes">Prochaines étapes</a>.</li>
-        <li><strong>Cloudflare Pages</strong> : hébergement site (gratuit, performant). Compte Matthieu au départ, puis ajout d’un admin CODEP ou migration de compte — identifiants dans un coffre partagé (bureau).</li>
-        <li><strong>Sanity</strong> : projet CMS (gratuit tier associatif suffisant au départ). Compte Matthieu + second admin CODEP invité sur le projet.</li>
-        <li><strong>GitHub</strong> : code source (repo privé ou orga association). Matthieu développe ; transfert orga ou co-admins CODEP ensuite.</li>
-        <li><strong>Resend</strong> (optionnel) : envoi e-mails formulaire contact — compte Matthieu, invitation admin CODEP sur l’équipe Resend (voir encart prochaines étapes).</li>
-        <li><strong>Coûts récurrents</strong> : domaine OVH (~10–15 €/an) ; reste gratuit ou très faible à l’échelle d’un CODEP.</li>
+        <li><strong>Domaine</strong> : <code>codep-tirarc66.fr</code>. Reste à faire : pointer les noms vers Cloudflare.</li>
+        <li><strong>Cloudflare</strong> : ouvert. Hébergement du site.</li>
+        <li><strong>GitHub</strong> : ouvert — <a href="https://github.com/matthieu-bouquet/codep-tirarc66">codep-tirarc66</a>.</li>
+        <li><strong>Sanity</strong> : à ouvrir (CMS).</li>
+        <li><strong>Resend</strong> : à ouvrir pour l’envoi du formulaire contact, lié à <code>codep-tirarc66.fr</code>.</li>
+        <li><strong>Transfert</strong> : admin CODEP sur ces comptes, plus tard.</li>
+        <li><strong>Coûts récurrents</strong> : domaine (~10–15 €/an) ; le reste est gratuit ou très faible à l’échelle d’un CODEP.</li>
       </ul>
-      <p class="note"><strong>Recommandation</strong> : propriété « morale » au CODEP (domaine + e-mail admin Sanity), mise en place technique par Matthieu, puis second administrateur CODEP formé.</p>
     </section>
 
     <section id="missions">
