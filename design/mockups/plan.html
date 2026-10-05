@@ -183,6 +183,7 @@
                 <tr><td><code>cdta66.fr</code></td><td>Comme le Gard (<code>cdta30.fr</code>)</td><td class="dom-taken">Pris</td></tr>
                 <tr><td><code>cd66arc.fr</code></td><td>Comme la Haute-Garonne (<code>cd31arc.fr</code>)</td><td class="dom-taken">Pris</td></tr>
                 <tr><td><code>codep66.fr</code></td><td>Sigle CODEP + 66</td><td class="dom-taken">Pris</td></tr>
+                <tr><td><code>codep-tirarc66.fr</code></td><td>CODEP + discipline + 66 (lisible, proche des usages CD)</td><td class="dom-free">Probablement libre</td></tr>
                 <tr><td><code>codep-66.fr</code></td><td>Variante avec tiret</td><td class="dom-free">Probablement libre</td></tr>
                 <tr><td><code>tirarc66.fr</code></td><td>Discipline + département</td><td class="dom-taken">Pris</td></tr>
                 <tr><td><code>tirarc-po.fr</code></td><td>66 / PO explicite (court)</td><td class="dom-free">Probablement libre</td></tr>
@@ -249,7 +250,7 @@
         </thead>
         <tbody>
           <tr data-id="t01"><td><input type="checkbox" aria-label="Marquer fait" /></td><td class="phase">Infra</td><td class="task">Créer / reprendre compte OVH au nom du CODEP (ou association)</td><td><span class="assign assign-codep">CODEP 66</span> <span class="assign assign-matthieu">Matthieu</span></td></tr>
-          <tr data-id="t02"><td><input type="checkbox" /></td><td class="phase">Infra</td><td class="task">Achat et renouvellement du nom de domaine (ex. codeptirarc66.fr ou équivalent)</td><td><span class="assign assign-both">CODEP + Matthieu</span></td></tr>
+          <tr data-id="t02" class="done"><td><input type="checkbox" checked /></td><td class="phase">Infra</td><td class="task">Achat et renouvellement du nom de domaine — <strong>fait</strong> : <code>codep-tirarc66.fr</code></td><td><span class="assign assign-both">CODEP + Matthieu</span></td></tr>
           <tr data-id="t03"><td><input type="checkbox" /></td><td class="phase">Infra</td><td class="task">Décider propriété des comptes Sanity, Cloudflare, GitHub, Resend (voir section hébergement)</td><td><span class="assign assign-both">CODEP + Matthieu</span></td></tr>
           <tr data-id="t04"><td><input type="checkbox" /></td><td class="phase">Infra</td><td class="task">Pointer le domaine vers Cloudflare (DNS)</td><td><span class="assign assign-matthieu">Matthieu</span></td></tr>
           <tr data-id="t05"><td><input type="checkbox" /></td><td class="phase">Cadrage</td><td class="task">Confirmer la direction visuelle — <strong>moderne</strong> privilégiée (territoire / créatif en référence)</td><td><span class="assign assign-codep">CODEP 66</span></td></tr>
@@ -260,7 +261,7 @@
           <tr data-id="t10"><td><input type="checkbox" /></td><td class="phase">Contenu</td><td class="task">Inventorier PDF existants (comptes rendus, assemblées générales, convocations, règlements, formulaires)</td><td><span class="assign assign-codep">CODEP 66</span></td></tr>
           <tr data-id="t11"><td><input type="checkbox" /></td><td class="phase">Contenu</td><td class="task">Calendrier des compétitions départementales / formations à publier (saison en cours)</td><td><span class="assign assign-codep">CODEP 66</span></td></tr>
           <tr data-id="t12"><td><input type="checkbox" /></td><td class="phase">Contenu</td><td class="task">Mentions légales, politique de confidentialité (RGPD), crédits photos</td><td><span class="assign assign-both">CODEP + Matthieu</span></td></tr>
-          <tr data-id="t13"><td><input type="checkbox" /></td><td class="phase">Dev</td><td class="task">Initialiser repo Astro 7 + Tailwind (fork archi Bompas)</td><td><span class="assign assign-matthieu">Matthieu</span></td></tr>
+          <tr data-id="t13" class="done"><td><input type="checkbox" checked /></td><td class="phase">Dev</td><td class="task">Initialiser repo Astro 7 + Tailwind — <a href="https://github.com/matthieu-bouquet/codep-tirarc66">codep-tirarc66</a> (page statique v0)</td><td><span class="assign assign-matthieu">Matthieu</span></td></tr>
           <tr data-id="t14"><td><input type="checkbox" /></td><td class="phase">Dev</td><td class="task">Projet Sanity + schémas (actus, docs, bureau, clubs, paramètres)</td><td><span class="assign assign-matthieu">Matthieu</span></td></tr>
           <tr data-id="t15"><td><input type="checkbox" /></td><td class="phase">Dev</td><td class="task">Déployer Studio Sanity + site staging Cloudflare Pages</td><td><span class="assign assign-matthieu">Matthieu</span></td></tr>
           <tr data-id="t16"><td><input type="checkbox" /></td><td class="phase">Dev</td><td class="task">Webhook Sanity → rebuild automatique</td><td><span class="assign assign-matthieu">Matthieu</span></td></tr>
@@ -269,6 +270,9 @@
           <tr data-id="t19"><td><input type="checkbox" /></td><td class="phase">Recette</td><td class="task">Session formation Sanity (1–2 bénévoles rédacteurs)</td><td><span class="assign assign-both">CODEP + Matthieu</span></td></tr>
           <tr data-id="t20"><td><input type="checkbox" /></td><td class="phase">Recette</td><td class="task">Relecture contenu et liens par le bureau</td><td><span class="assign assign-codep">CODEP 66</span></td></tr>
           <tr data-id="t21"><td><input type="checkbox" /></td><td class="phase">Prod</td><td class="task">Mise en production domaine + communication aux clubs</td><td><span class="assign assign-both">CODEP + Matthieu</span></td></tr>
+          <tr data-id="t22"><td><input type="checkbox" /></td><td class="phase">Contenu</td><td class="task">Récupérer le logo CODEP en <strong>meilleure définition</strong> (fichier source vectoriel ou PNG/JPG haute résolution pour le site)</td><td><span class="assign assign-both">CODEP + Matthieu</span></td></tr>
+          <tr data-id="t23"><td><input type="checkbox" /></td><td class="phase">Contenu</td><td class="task">Valider l’encart <strong>permanence</strong> (lieu, horaires affichés sur la page d’accueil provisoire)</td><td><span class="assign assign-codep">CODEP 66</span></td></tr>
+          <tr data-id="t24"><td><input type="checkbox" /></td><td class="phase">Contenu</td><td class="task">Valider l’<strong>adresse e-mail</strong> de contact publique (<code>codeptiralarc66@gmail.com</code> ou autre)</td><td><span class="assign assign-codep">CODEP 66</span></td></tr>
         </tbody>
       </table>
     </section>
